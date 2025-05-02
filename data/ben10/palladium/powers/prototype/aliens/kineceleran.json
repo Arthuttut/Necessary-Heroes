@@ -1,11 +1,11 @@
 {
     "name": "Kineceleran",
     "background": "minecraft:textures/block/red_wool.png",
-    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/kineceleran/kineceleran_activation_os.png",
+    "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/kineceleran/kineceleran_activation_os.png",
     "abilities": {
         "untransfoarm": {
             "type": "palladium:command",
-            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
             "title": "Untransform",
             "bar_color": "light_gray",
             "hidden": true,
@@ -14,7 +14,7 @@
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
-                "function nc:omnitrix/prototype/untransform"
+                "function ben10:omnitrix/prototype/untransform"
             ],
             "conditions": {
                 "enabling": {
@@ -36,8 +36,8 @@
             }
         },
         "quick_change": {
-            "type": "nc:quick_change",
-            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/quick_change.png",
+            "type": "ben10:quick_change",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/quick_change.png",
             "title": "Quick Change",
             "hidden": true,
             "hidden_in_bar": false,
@@ -67,7 +67,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran.png",
+            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -91,7 +91,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_timeout.png",
+            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_timeout.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -110,7 +110,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_mask.png",
+            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_mask.png",
             "model_type": "keep",
             "priority": 60,
             "conditions": {
@@ -140,7 +140,7 @@
         "hidden": true,
         "hidden_in_bar": true,
         "list_index": -1,
-        "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_mask_timeout.png",
+        "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_mask_timeout.png",
         "model_type": "keep",
         "priority": 50,
         "conditions": {
@@ -187,7 +187,7 @@
     },
     "speed_adjust": {
         "type": "palladium:dummy",
-        "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/kineceleran/speed_adjust.png",
+        "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/kineceleran/speed_adjust.png",
         "title": "SpeedAdjust",
         "bar_color": "light_gray",
         "hidden": false,
@@ -274,7 +274,7 @@
       },
       "barrage": {
         "type": "palladium:command",
-        "icon": "nc:textures/icon/gui/powers/barrage.png",
+        "icon": "ben10:textures/icon/gui/powers/barrage.png",
         "title": "Barrage",
         "bar_color": "light_gray",
         "hidden": false,
@@ -348,7 +348,7 @@
         "type": "palladium:trail",
         "hidden": true,
         "hidden_in_bar": true,
-        "trail": "nc:ben10/kineceleran",
+        "trail": "ben10:ben10/kineceleran",
         "conditions": {
             "enabling": {
                 "type": "palladium:objective_score",
@@ -502,7 +502,7 @@
         }
     },
     "no_hunger": {
-        "type": "nc:hunger_freeze",
+        "type": "ben10:hunger_freeze",
         "hidden": true,
         "hidden_in_bar": true,
         "conditions": {
