@@ -1,0 +1,1835 @@
+{
+    "name": "Prototype",
+    "background": "minecraft:textures/block/green_wool.png",
+    "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+    "abilities": {
+        "prototype_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "ben10:prototype/prototype",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 6000,
+                        "max_score": 6000
+                    },
+                    {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }          
+                    ]
+                }
+                ]
+            }
+        },
+        "untransform_died": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": ["function ben10:omnitrix/prototype/untransform"],
+            "last_tick_commands": [],
+            "commands": [
+            ],
+            "conditions": {
+                "unlocking": [{
+                    "type": "palladium:health",
+                    "min_health": 0,
+                    "max_health": 0
+                },
+                {
+                    "type": "palladium:has_tag",
+                    "tag": "transformed"
+                }                
+            ]
+            }
+        },
+        "recharge": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_timer 1"
+            ],
+            "conditions": {
+                    "enabling": {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_tag",
+                                "tag": "transformed"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            }
+                        ]
+                    }                
+                }
+        },
+        "systems": {
+                "type": "palladium:command",
+                "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+                "title": "System",
+                "bar_color": "light_gray",
+                "hidden": false,
+                "hidden_in_bar": true,
+                "description": "Basic systems such as transformation and protection of the user's life",
+                "first_tick_commands": [],
+                "last_tick_commands": [],
+                "commands": [
+                    "function ben10:omnitrix/prototype/omnitrix_systems"
+                ],
+                "conditions": {
+                    "enabling": {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_tag",
+                                "tag": "transformed"
+                            }
+                        ]
+                    }                
+                }
+        },
+        "master_control": {
+            "type": "palladium:dummy",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/white_mode_prototype.png",
+            "title": "Master Control",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": 1,
+            "description": "Master control allows you to quickly switch from alien form to human form and also gives you unlimited time for transformations.",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "master_control"
+                }
+            }
+        },
+        "menu": {
+            "type": "palladium:dummy",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Menu",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "description": "Only menu :)",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 0  ,
+                        "max_score": 5999
+                    }]
+            },
+            {
+                "type": "palladium:has_tag",
+                "tag": "prime_prototype"
+            }  ]
+                }
+        },
+        "omnitrix_code_1": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit.png",
+            "title": "Enter One Digit Unit",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_1 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+               "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_1_remove": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit_remove.png",
+            "title": "Remove One Digit Unit",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_1 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "color_change"
+                    }]
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_2": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit.png",
+            "title": "Enter One Digit Ten",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_2 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_2_remove": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit_remove.png",
+            "title": "Remove One Digit Ten",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_2 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "color_change"
+                    }]
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_3": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit.png",
+            "title": "Enter One Digit Hundred",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 7,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_3 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_3_remove": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit_remove.png",
+            "title": "Remove One Digit Hundred",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 7,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_3 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "color_change"
+                    }]
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_4": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit.png",
+            "title": "Enter One Digit Thousand",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 8,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_4 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_4_remove": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/one_digit_remove.png",
+            "title": "null",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 8,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_4 1",
+                "title @s actionbar [{\"text\":\"Code: \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_2\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_3\"},\"color\":\"green\"},{\"text\":\"> \",\"color\":\"green\"},{\"text\":\"<\",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_4\"},\"color\":\"green\"},{\"text\":\">\",\"color\":\"green\"}]",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "color_change"
+                    }]
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "enter_code": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/white_mode_prototype.png",
+            "title": "Enter Code",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 9,
+            "first_tick_commands": [
+                "execute as @s[scores={omnitrix_code_1=4,omnitrix_code_2=3,omnitrix_code_3=2,omnitrix_code_4=8}] run function ben10:omnitrix/prototype/master_control",
+                "execute as @s[scores={omnitrix_code_1=4,omnitrix_code_2=3,omnitrix_code_3=2,omnitrix_code_4=7}] run tag @s remove master_control",
+                "execute as @s[scores={omnitrix_code_1=7,omnitrix_code_2=4,omnitrix_code_3=9,omnitrix_code_4=1}] run function ben10:omnitrix/prototype/decouple",
+                "execute as @s[scores={omnitrix_code_1=5,omnitrix_code_2=5,omnitrix_code_3=8,omnitrix_code_4=5}] run tag @s add voice_control"
+            ],
+            "last_tick_commands": [
+             "scoreboard players reset @s omnitrix_code_1",
+             "scoreboard players reset @s omnitrix_code_2",
+             "scoreboard players reset @s omnitrix_code_3",
+             "scoreboard players reset @s omnitrix_code_4",                
+             "title @s actionbar [{\"text\":\"Code: <0> <0> <0> <0> \",\"color\":\"green\"},{\"score\":{\"name\":\"@s\",\"objective\":\"omnitrix_code_1\"},\"color\":\"green\"}]",
+             "playsound ben10:prototype.dial_cycle player @s"
+            ],
+            "commands": [],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 3.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                     "type": "palladium:ability_enabled",
+                        "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:crouching"
+                    }]
+                }
+            ]
+            }
+        },
+        "color_change": {
+            "type": "palladium:dummy",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/color_change.png",
+            "title": "Color Change",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 9,
+            "description": "Changes omnitrix color",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:crouching"
+                },
+                {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [  {
+                        "type": "palladium:has_tag",
+                        "tag": "transformed"
+                    }]
+                }              
+            ]                  
+            }
+    },
+    "core_color_red": {
+        "type": "palladium:command",
+        "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/core_colors/red_core.png",
+        "title": "Red",
+        "list_index": 5,
+        "hidden": true,
+        "hidden_in_bar": false,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": ["tag @s add prototype_core_color_red"],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:action",
+                "cooldown": 5,
+                "key_type": "key_bind",
+                "needs_empty_hand": false,
+                "allow_scrolling_when_crouching": true
+            },
+            "unlocking": {
+                "type": "palladium:ability_enabled",
+                "ability": "color_change"
+            }
+        }
+    },
+    "core_color_blue": {
+        "type": "palladium:command",
+        "icon": "minecraft:command_block",
+        "title": "Blue",
+        "list_index": 5,
+        "hidden": true,
+        "hidden_in_bar": false,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": ["tag @s add prototype_core_color_red"],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:action",
+                "cooldown": 5,
+                "key_type": "key_bind",
+                "needs_empty_hand": false,
+                "allow_scrolling_when_crouching": true
+            },
+            "unlocking": {
+                "type": "palladium:ability_enabled",
+                "ability": "color_change"
+            }
+        }
+    },
+        "discharge": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_timer 1"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:has_tag",
+                    "tag": "transformed"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_tag",
+                                "tag": "master_control"
+                            }
+                        ]
+                    }
+                ]
+                }
+        },
+        "untransform": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 0
+                }
+            }
+        },
+        "prime_omnitrix": {
+                "type": "palladium:command",
+                "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/prototype_blank_select.png",
+                "title": "Prime Watch",
+                "hidden": true,
+                "hidden_in_bar": false,
+                "list_index": 0,
+                "first_tick_commands": [
+                    "tag @s add prime_prototype",
+                    "playsound ben10:prototype.prime player @s"
+                ],
+                "last_tick_commands": [
+                    "tag @s remove prime_prototype",
+                    "scoreboard players set @s omnitrix_select 1"
+            ],
+                "commands": [
+                ],
+              "conditions": {
+               "enabling": {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }
+                    ]
+                }
+            }
+        },
+        "prime_animation": {
+            "type": "palladium:animation_timer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "start_value": 0,
+            "max_value": 8,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "prime_omnitrix"
+                }
+            }
+        },
+        "prime_mask": {
+            "type": "palladium:animation_timer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "start_value": 0,
+            "max_value": 10,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "prime_omnitrix"
+                }
+            }
+        },
+        "show_omnitrix": {
+            "type": "palladium:show_both_arms",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "prime_omnitrix"
+                }
+            }
+        },       
+        "remove_prime": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "tag @s remove prime_prototype"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:has_tag",
+                    "tag": "prime_prototype"
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "prime_omnitrix"
+                    }]
+                }
+            }
+        },
+        "scroll_up": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_select 1",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+          "conditions": {
+            "enabling": [
+                 {
+                  "type": "palladium:action",
+                  "cooldown": 0,
+                  "key_type": "scroll_up",
+                  "needs_empty_hand": true,
+                  "allow_scrolling_when_crouching": true
+              },
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:objective_score",
+                  "objective": "omnitrix_select",
+                  "min_score": 23,
+                  "max_score": 23
+              }
+            }
+                ],
+                "unlocking": {
+                        "type": "palladium:has_tag",
+                        "tag": "prime_prototype"
+              }
+              }
+        },
+        "scroll_down": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_select 1",
+                "playsound ben10:prototype.dial_cycle player @s"
+            ],
+          "conditions": {
+            "enabling": [
+                 {
+                  "type": "palladium:action",
+                  "cooldown": 0,
+                  "key_type": "scroll_down",
+                  "needs_empty_hand": true,
+                  "allow_scrolling_when_crouching": true
+              },
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:objective_score",
+                  "objective": "omnitrix_select",
+                  "min_score": 1,
+                  "max_score": 1
+              }
+            }
+                ],
+                "unlocking": {
+                        "type": "palladium:has_tag",
+                        "tag": "prime_prototype"
+              }
+              }
+        },
+        "dial_cycle_animation": {
+            "type": "palladium:animation_timer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "start_value": 0,
+            "max_value": 20,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:or",
+                    "conditions": [{
+                        "type": "palladium:ability_enabled",
+                        "ability": "scroll_up"
+                    },
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "scroll_down"
+                    }                    
+                    ]
+                }                
+            }
+        },
+        "dial_cycle_prototype": {
+            "type": "geckolib:render_layer_animation",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "ben10:prototype/prototype",
+            "controller": "dial_cycle",
+            "animation_trigger": "dial_cycle",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "dial_cycle_animation"
+                }                
+            }
+        },
+        "pyronite": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/pyronite_activation_os.png",
+            "title": "Pyronite",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/pyronite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                 "type": "palladium:has_tag",
+                 "tag": "prime_prototype"
+                        },
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 6000,
+                            "max_score": 6000
+                        },
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_select",
+                            "min_score": 1,
+                            "max_score": 1
+                        }
+                    ]
+                }
+            }
+        },
+        "vulpimancer": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/vulpimancer/vulpimancer_activation_os.png",
+            "title": "Vulpimancer",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/pyronite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 2,
+                                "max_score": 2
+                            }
+                        ]
+                }
+            }
+        },
+        "petrosapien": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/petrosapien/petrosapien_activation_os.png",
+            "title": "Petrosapien",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/petrosapien"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 3,
+                                "max_score": 3
+                            }
+                        ]
+                }
+            }
+        },
+        "kineceleran": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/kineceleran/kineceleran_activation_os.png",
+            "title": "Kineceleran",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/kineceleran"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 4,
+                                "max_score": 4
+                            }
+                        ]
+                }
+            }
+        },
+        "galvan": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/galvan/galvan_activation_os.png",
+            "title": "Galvan",
+            "hidden": true,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/galvan"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 5,
+                                "max_score": 5
+                            }
+                        ]
+                }
+            }
+        },
+        "tetramand": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/tetramand/tetramand_activation_os.png",
+            "title": "Tetramand",
+            "hidden": true,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/tetramand"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 6,
+                                "max_score": 6
+                            }
+                        ]
+                }
+            }
+        },
+        "lepidopterran": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/lepidopterran/lepidopterran_activation_os.png",
+            "title": "Lepidopterran",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/lepidopterran"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 7,
+                                "max_score": 7
+                            }
+                        ]
+                }
+            }
+        },
+        "piscciss_volann": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/piscciss_volann/piscciss_volann_activation_os.png",
+            "title": "Piscciss Volann",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/piscciss_volann"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 8,
+                                "max_score": 8
+                            }
+                        ]
+                }
+            }
+        },
+        "galvanic_mechamorph": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/galvanic_mechamorph/galvanic_mechamorph_activation_os.png",
+            "title": "Galvanic Mechamorph",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/galvanic_mechamorph"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 9,
+                                "max_score": 9
+                            }
+                        ]
+                }
+            }
+        },
+        "ectonurite": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_activation_os.png",
+            "title": "Ectonurite",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 10,
+                                "max_score": 10
+                            }
+                        ]
+                }
+            }
+        },
+        "arburian_pelarota": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/arburian_pelarota/arburian_pelarota_activation_os.png",
+            "title": "Arburian Pelarota",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 11,
+                                "max_score": 11
+                            }
+                        ]
+                }
+            }
+        },
+        "florauna": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/florauna/florauna_activation_os.png",
+            "title": "Florauna",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 12,
+                                "max_score": 12
+                            }
+                        ]
+                }
+            }
+        },
+        "loboan": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/loboan/loboan_activation_os.png",
+            "title": "Loboan",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 13,
+                                "max_score": 13
+                            }
+                        ]
+                }
+            }
+        },
+        "thep_khufan": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/thep_khufan/thep_khufan_activation_os.png",
+            "title": "Thep Khufan",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 14,
+                                "max_score": 14
+                            }
+                        ]
+                }
+            }
+        },
+        "transylian": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/transylian/transylian_activation_os.png",
+            "title": "Transylian",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 15,
+                                "max_score": 15
+                            }
+                        ]
+                }
+            }
+        },
+        "gourmand": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/gourmand/gourmand_activation_os.png",
+            "title": "Gourmand",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 16,
+                                "max_score": 16
+                            }
+                        ]
+                }
+            }
+        },
+        "splixson": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/splixson/splixson_activation_os.png",
+            "title": "Splixson",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 17,
+                                "max_score": 17
+                            }
+                        ]
+                }
+            }
+        },
+        "opticoid": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/opticoid/opticoid_activation_os.png",
+            "title": "Opticoid",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 18,
+                                "max_score": 18
+                            }
+                        ]
+                }
+            }
+        },
+        "to_kustar": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/to_kustar/to_kustar_activation_os.png",
+            "title": "To'kustar",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/to_kustar"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 19,
+                                "max_score": 19
+                            }
+                        ]
+                }
+            }
+        },
+        "polar_manzardill": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/polar_manzardill/polar_manzardill_activation_os.png",
+            "title": "Polar Manzardill",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 20,
+                                "max_score": 20
+                            }
+                        ]
+                }
+            }
+        },
+        "conductoid": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/conductoid/conductoid_activation_os.png",
+            "title": "Conductoid",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 21,
+                                "max_score": 21
+                            }
+                        ]
+                }
+            }
+        },
+        "nosedeenian": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/nosedeenian/nosedeenian_activation_os.png",
+            "title": "Nosedeenian",
+            "hidden": true,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 22,
+                                "max_score": 22
+                            }
+                        ]
+                }
+            }
+        },
+        "sphoeroid": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/sphoeroid/sphoeroid_activation_os.png",
+            "title": "Sphoeroid",
+            "hidden": true,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_prototype"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 23,
+                                "max_score": 23
+                            }
+                        ]
+                }
+            }
+        }
+        }
+    }

@@ -1,0 +1,65 @@
+{
+    "name": "Sonorosian Clone",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/sonorosian/sonorosian_activation.png",
+    "persistent_data": true,
+    "abilities": {
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "Sonorosian"
+            }
+        },
+        "layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "nc:ben10/recalibrated/sonorosian"
+        },
+        "size": {
+            "type": "palladium:size",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "scale": 0.98
+        },
+        "tp": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "commands": [
+                "tp @s @e[type=wolf,sort=nearest,limit=1,tag=SonorosianClone]",
+                "execute unless entity @e[type=wolf,tag=SonorosianClone,limit=1,sort=nearest] run kill @s"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 3
+                }
+            }
+        },
+        "hide": {
+                "type": "palladium:hide_body_part",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "gui_position": "null",
+                "description": "null",
+                "body_parts": [
+                    "right_arm",
+                    "left_arm",
+                    "head",
+                    "left_leg",
+                    "right_leg",
+                    "chest",
+                    "head_overlay",
+                    "chest_overlay",
+                    "right_arm_overlay",
+                    "left_arm_overlay",
+                    "right_leg_overlay",
+                    "left_leg_overlay"
+                ],
+                "affects_first_person": true
+        }
+    }
+  }

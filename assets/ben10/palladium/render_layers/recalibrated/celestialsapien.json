@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/celestialsapien.geo.json",
+    "texture": "nc:textures/entity/ben10/recalibrated/celestialsapien/celestialsapien.png"
+  }

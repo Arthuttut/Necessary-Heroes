@@ -1,0 +1,10 @@
+{
+    "icon": "nc:plates/iron_plate",
+    "title": "Materials(Ores)",
+    "items": [
+        "nc:plates/iron_plate",
+        "nc:dust/iron_dust",
+        "nc:plates/gold_plate",
+        "nc:dust/gold_dust"
+    ]
+}

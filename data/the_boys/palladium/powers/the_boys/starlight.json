@@ -1,0 +1,96 @@
+{
+  "name": "Starlight",
+  "background": "minecraft:textures/block/red_wool.png",
+  "icon": "nc:textures/icon/gui/powers/starlight.png",
+  "abilities": {
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:feather",
+      "title": "Flight",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Allows you to fly.",
+      "attribute": "palladium:flight_speed",
+      "amount": 1.5,
+      "operation": 0,
+      "uuid": "7743ebb2-faa5-4619-acc8-1d7676d0a7fb",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle",
+          "cooldown": 220
+        }
+      }
+    },
+    "light_beam": {
+      "type": "palladium:energy_beam",
+      "icon": "nc:textures/icon/gui/powers/starlight.png",
+      "title": "Light Beam",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Shoots a powerful light beam.",
+      "energy_beam": "nc:laser",
+      "damage": 15,
+      "max_distance": 30,
+      "speed": 0.5,
+      "set_on_fire_seconds": 0,
+      "cause_fire": false,
+      "smelt_blocks": false,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "power": "nc:the_boys/starlight",
+          "ability": "light_beam_aim"
+        }
+      }
+    },
+    "light_beam_aim": {
+      "type": "palladium:aim",
+      "icon": "nc:textures/icon/gui/powers/starlight.png",
+      "title": "Light Beam Aim",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Aim your light beam.",
+      "time": 3,
+      "arm": "left_arm",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:held",
+          "cooldown": 70
+        }
+      }
+    },
+    "resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Resistance",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Increases your armor rating.",
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "e65adf99-99e8-4e78-8417-9fe53c4dc1c0"
+    },
+    "strenght": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Super Strength",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "attribute": "palladium:punch_damage",
+      "amount": 7,
+      "operation": 0,
+      "uuid": "e9f934d8-2538-460a-8d94-0676c0681c8d"
+    }
+  }
+}

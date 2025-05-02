@@ -1,0 +1,1013 @@
+{
+    "name": "Recalibrated",
+    "background": "minecraft:textures/block/green_wool.png",
+    "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_omnitrix.png",
+    "abilities": {
+        "recalibrated_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "nc:ben10/recalibrated/recalibrated",
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 6000,
+                        "max_score": 6000
+                    },
+                    {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }          
+                    ]
+                }
+                ]
+            }
+        },
+        "prototype_timeout_layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "nc:ben10/recalibrated/recalibrated_timeout",
+            "conditions": {
+                "enabling": [{
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 0,
+                        "max_score": 5999
+                    },
+                    {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }
+                    ]
+                }
+                ]
+                }                
+        },
+        "untransform_died": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": ["function nc:omnitrix/recalibrated/untransform"],
+            "last_tick_commands": [],
+            "commands": [
+            ],
+            "conditions": {
+                "unlocking": [{
+                    "type": "palladium:health",
+                    "min_health": 0,
+                    "max_health": 0
+                },
+                {
+                    "type": "palladium:has_tag",
+                    "tag": "transformed"
+                }                
+            ]
+            }
+        },
+        "recharge": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_timer 1"
+            ],
+            "conditions": {
+                    "enabling": {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_tag",
+                                "tag": "transformed"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_timer",
+                                "min_score": 6000,
+                                "max_score": 6000
+                            }
+                        ]
+                    }                
+                }
+        },
+        "systems": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "System",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "description": "Basic systems such as transformation and protection of the user's life",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/omnitrix_systems"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }
+                    ]
+                }                
+            }
+    },
+        "master_control": {
+            "type": "palladium:dummy",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_white.png",
+            "title": "Master Control",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": true,
+            "list_index": 1,
+            "description": "Master control allows you to quickly switch from alien form to human form and also gives you unlimited time for transformations.",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "master_control"
+                }
+            }
+        },
+        "menu": {
+            "type": "palladium:dummy",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_omnitrix.png",
+            "title": "Menu",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "description": "Only menu :)",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:has_tag",
+                    "tag": "prime_recalibrated"
+                }                
+            }
+        },
+        "omnitrix_code_1": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit.png",
+            "title": "Enter One Digit Unit",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_1 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+            }
+            }
+        },
+        "omnitrix_code_1_remove": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit_remove.png",
+            "title": "Remove One Digit Unit",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 5,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_1 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_2": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit.png",
+            "title": "Enter One Digit Ten",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_2 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_2_remove": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit_remove.png",
+            "title": "Remove One Digit Ten",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 6,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_2 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_3": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit.png",
+            "title": "Enter One Digit Hundred",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 7,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_3 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_3_remove": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit_remove.png",
+            "title": "Remove One Digit Hundred",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 7,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_3 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "omnitrix_code_4": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit.png",
+            "title": "Enter One Digit Thousand",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 8,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_code_4 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:crouching"
+                        }
+                    ]
+                }
+                ]
+            }
+        },
+        "omnitrix_code_4_remove": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/one_digit_remove.png",
+            "title": "null",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 8,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_code_4 1"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [{
+                    "type": "palladium:ability_enabled",
+                    "ability": "menu"
+                },
+                {
+                    "type": "palladium:crouching"
+                }
+            ]
+            }
+        },
+        "enter_code": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_white.png",
+            "title": "Enter Code",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 9,
+            "first_tick_commands": [
+                "execute as @s[scores={omnitrix_code_1=9,omnitrix_code_2=7,omnitrix_code_3=4,omnitrix_code_4=5}] run tag @s add master_control",
+                "execute as @s[scores={omnitrix_code_1=5,omnitrix_code_2=4,omnitrix_code_3=3,omnitrix_code_4=6}] run superpower remove nc:ben10/recalibrated/recalibrated"
+            ],
+            "last_tick_commands": [
+             "scoreboard players reset @s omnitrix_code_1",
+             "scoreboard players reset @s omnitrix_code_2",
+             "scoreboard players reset @s omnitrix_code_3",
+             "scoreboard players reset @s omnitrix_code_4"
+            ],
+            "commands": [],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 3.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                     "type": "palladium:ability_enabled",
+                        "ability": "menu"
+                }
+            }
+        },
+        "discharge": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_timer 1"
+            ],
+            "conditions": {
+                "enabling": [
+                    {
+                    "type": "palladium:has_tag",
+                    "tag": "transformed"
+                    },
+                    {
+                        "type": "palladium:not",
+                        "conditions": [
+                            {
+                                "type": "palladium:has_tag",
+                                "tag": "master_control"
+                            }
+                        ]
+                    }
+                ]
+                }
+        },
+        "untransform": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 0
+                }
+            }
+        },
+        "prime_omnitrix": {
+                "type": "palladium:command",
+                "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_activation.png",
+                "title": "Prime Watch",
+                "bar_color": "light_gray",
+                "hidden": true,
+                "hidden_in_bar": false,
+                "list_index": 0,
+                "gui_position": "null",
+                "description": "null",
+                "first_tick_commands": [
+                    "tag @s add prime_recalibrated",
+                    "playsound nc:recalibrated.prime player @s"
+                ],
+                "last_tick_commands": [
+                    "tag @s remove prime_recalibrated",
+                    "scoreboard players set @s omnitrix_select 1"
+            ],
+                "commands": [
+                ],
+              "conditions": {
+               "enabling": {
+                        "type": "palladium:toggle",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:has_tag",
+                            "tag": "transformed"
+                        }
+                    ]
+                }
+            }
+        },
+        "scroll_up": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players add @s omnitrix_select 1",
+                "playsound nc:recalibrated.dial_cycle player @s"
+            ],
+          "conditions": {
+            "enabling": [
+                 {
+                  "type": "palladium:action",
+                  "cooldown": 0,
+                  "key_type": "scroll_up",
+                  "needs_empty_hand": true,
+                  "allow_scrolling_when_crouching": true
+              },
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:objective_score",
+                  "objective": "omnitrix_select",
+                  "min_score": 10,
+                  "max_score": 10
+              }
+            }
+                ],
+                "unlocking": {
+                        "type": "palladium:has_tag",
+                        "tag": "prime_recalibrated"
+              }
+              }
+        },
+        "scroll_down": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s omnitrix_select 1",
+                "playsound nc:recalibrated.dial_cycle player @s"
+            ],
+          "conditions": {
+            "enabling": [
+                 {
+                  "type": "palladium:action",
+                  "cooldown": 0,
+                  "key_type": "scroll_down",
+                  "needs_empty_hand": true,
+                  "allow_scrolling_when_crouching": true
+              },
+              {
+                "type": "palladium:not",
+                "conditions": {
+                  "type": "palladium:objective_score",
+                  "objective": "omnitrix_select",
+                  "min_score": 1,
+                  "max_score": 1
+              }
+            }
+                ],
+                "unlocking": {
+                        "type": "palladium:has_tag",
+                        "tag": "prime_recalibrated"
+              }
+              }
+        },
+        "methanosian": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/methanosian/methanosian_activation.png",
+            "title": "Methanosian",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/methanosian"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:and",
+                    "conditions": [
+                        {
+                 "type": "palladium:has_tag",
+                 "tag": "prime_recalibrated"
+                        },
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_select",
+                            "min_score": 1,
+                            "max_score": 1
+                        }
+                    ]
+                }
+            }
+        },
+        "sonorosian": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/sonorosian/sonorosian_activation.png",
+            "title": "Sonorosian",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/sonorosian"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 2,
+                                "max_score": 2
+                            }
+                        ]
+                }
+            }
+        },
+        "vaxasaurian": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/vaxasaurian/vaxasaurian_activation.png",
+            "title": "Vaxasaurian",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/vaxasaurian"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 3,
+                                "max_score": 3
+                            }
+                        ]
+                }
+            }
+        },
+        "aerophibian": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/aerophibian/aerophibian_activation.png",
+            "title": "Aerophibian",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/aerophibian"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 4,
+                                "max_score": 4
+                            }
+                        ]
+                }
+            }
+        },
+        "necrofriggian": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/necrofriggian/necrofriggian_activation.png",
+            "title": "Necrofriggian",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/necrofriggian"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 5,
+                                "max_score": 5
+                            }
+                        ]
+                }
+            }
+        },
+        "crystalsapien": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/crystalsapien/crystalsapien_activation.png",
+            "title": "Crystalsapien",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/crystalsapien"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 6,
+                                "max_score": 6
+                            }
+                        ]
+                }
+            }
+        },
+        "cerebrocrustacean": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/cerebrocrustacean/cerebrocrustacean_activation.png",
+            "title": "Cerebrocrustacean",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/cerebrocrustacean"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 7,
+                                "max_score": 7
+                            }
+                        ]
+                }
+            }
+        },
+        "arachnichimp": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/arachnichimp/arachnichimp_activation.png",
+            "title": "Arachnichimp",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/arachnichimp"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 8,
+                                "max_score": 8
+                            }
+                        ]
+                }
+            }
+        },
+        "polymorph": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/polymorph/polymorph_activation.png",
+            "title": "Polymorph",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/polymorph"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 9,
+                                "max_score": 9
+                            }
+                        ]
+                }
+            }
+        },
+        "celestialsapien": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/celestialsapien/celestialsapien_activation.png",
+            "title": "Celestialsapien",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 1,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/celestialsapien"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                        "type": "palladium:and",
+                        "conditions": [
+                            {
+                     "type": "palladium:has_tag",
+                     "tag": "prime_recalibrated"
+                            },
+                            {
+                                "type": "palladium:objective_score",
+                                "objective": "omnitrix_select",
+                                "min_score": 10,
+                                "max_score": 10
+                            }
+                        ]
+                }
+            }
+        }
+        }
+    }

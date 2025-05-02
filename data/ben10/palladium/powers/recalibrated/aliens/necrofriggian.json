@@ -1,0 +1,49 @@
+{
+    "name": "Necrofriggian",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "minecraft:apple",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_omnitrix.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:crouching"
+                    }
+            }
+        },
+        "render_layer": {
+                "type": "geckolib:render_layer_animation",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "render_layer": "nc:necrofriggian_wings",
+                "controller": "main",
+                "animation_trigger": "flapping_wings.animation"
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/recalibrated/necrofriggian/necrofriggian.png",
+            "model_type": "keep",
+            "priority": 50
+        }
+    }
+  }

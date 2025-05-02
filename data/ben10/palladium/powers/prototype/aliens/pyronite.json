@@ -1,0 +1,368 @@
+{
+    "name": "Pyronite",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/pyronite_activation_os.png",
+    "gui_display_type": "tree",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "Pyronite"
+            }
+        },
+        "layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "ben10:prototype/pyronite"
+        },
+        "hide": {
+            "type": "palladium:hide_body_part",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "gui_position": "null",
+            "description": "null",
+            "body_parts": [
+                "right_arm",
+                "left_arm",
+                "head",
+                "left_leg",
+                "right_leg",
+                "chest",
+                "head_overlay",
+                "chest_overlay",
+                "right_arm_overlay",
+                "left_arm_overlay",
+                "right_leg_overlay",
+                "left_leg_overlay"
+            ],
+            "affects_first_person": true
+    },
+        "immunities": {
+            "type": "palladium:damage_immunity",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage_sources": [
+                "minecraft:is_fire"
+            ]
+        },
+        "resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "minecraft:generic.armor",
+            "amount": 15,
+            "operation": 0,
+            "uuid": "11e3c667-64fc-4b3d-b1f6-0b519bf02980"
+        },
+        "punch_damage": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 7,
+            "operation": 0,
+            "uuid": "b13d91be-3b19-4938-9a7e-0e63974fc2bb"
+        },
+        "fire_punch": {
+            "type": "palladium:fire_aspect",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/pyronite_punch.png",
+            "title": "Fire Punch",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 2,
+            "gui_position": "null",
+            "description": "Causes fire on anyone hit by a punch",
+            "time": 6,
+            "should_stack_time": false,
+            "max_time": 7,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle"
+            }
+        }
+    },
+        "spark_of_fire": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/fireball.png",
+            "title": "Spark of fire",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": "null",
+            "description": "Releases a sphere of fire",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "cast @s firebolt 7"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:is_in_water_or_bubble"
+                        }
+                    ]
+                }
+            }
+        },
+       "flamethrower": {
+            "type": "palladium:dummy",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/flamethrower.png",
+            "title": "Flamethrower",
+            "list_index": 1,
+            "hidden": true,
+            "hidden_in_bar": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle"
+                },
+                "unlocking": {  
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:is_under_water"
+                        }
+                    ]
+                }
+            }
+        },
+        "right_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "main_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "flamethrower"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "left_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "left_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "left_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "flamethrower"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "right_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "flamethrower_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 5.5,
+            "damage_type": "minecraft:on_fire",
+            "max_distance": 25,
+            "speed": 0.1,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "right_aim"
+                }
+            }
+        },
+        "flamethrower_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 5.5,
+            "damage_type": "minecraft:on_fire",
+            "max_distance": 25,
+            "speed": 0.1,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "left_aim"
+                }
+            }
+        }, 
+            "fire_particle": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "ben10:right_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                            "type": "palladium:ability_enabled",
+                            "ability": "flamethrower_right"
+                    }
+                }
+            },
+            "fire_particle_left": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "ben10:left_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                            "type": "palladium:ability_enabled",
+                            "ability": "flamethrower_left"
+                    }
+                }
+            },
+        "fire_fly": {
+            "type": "palladium:attribute_modifier",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "attribute": "palladium:flight_speed",
+            "amount": 1.6,
+            "operation": 0,
+            "uuid": "90690bad-ab86-49b1-8cb0-0822411ef63c",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:is_in_water_or_bubble"
+                        }
+                    ]
+                }
+            }
+            },
+            "fire_particle_fly": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "ben10:right_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                        "type": "palladium:is_hovering_or_levitating"
+                    }
+                }
+            },
+            "fire_particle_left_fly": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "ben10:left_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                        "type": "palladium:is_hovering_or_levitating"
+                    }
+                }
+            },
+        "absorb_flames": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/pyronite/absorb_flames.png",
+            "title": "Absorb Flames",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 3,
+            "gui_position": "null",
+            "description": "null",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/absorb_flames"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:is_in_water_or_bubble"
+                        }
+                    ]
+                }
+            }
+        },           
+            "extinguish_sound": {
+            "type": "palladium:play_sound",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "sound": "minecraft:entity.generic.extinguish_fire",
+            "volume": 1,
+            "pitch": 1,
+            "looping": false,
+            "play_self": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "water_extinguished"
+                }
+            }
+        }        
+      }
+    }

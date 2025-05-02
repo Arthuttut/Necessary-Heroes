@@ -1,0 +1,14 @@
+{
+    "body_part": "right_arm",
+    "type": "palladium:laser",
+    "segments": 30,
+    "rainbow": true,
+    "core_color": "#FFFFFF",
+    "glow_color": "#800080",
+    "size":[1,1],
+    "offset": [
+      -1,
+      -11,
+      0
+    ]
+  }

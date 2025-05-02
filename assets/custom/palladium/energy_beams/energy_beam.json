@@ -1,0 +1,12 @@
+{
+    "body_part": "right_arm",
+    "type": "palladium:lightning",
+    "segments": 30,
+    "glow_color": "#fde910",
+    "size":[0.4,0.4],
+    "offset": [
+      -1,
+      -11,
+      0
+    ]
+  }

@@ -1,0 +1,34 @@
+{
+    "type": "geckolib:default",
+    "model": "ben10:geo/prototype/prototype.geo.json",
+    "animation_file": "ben10:animations/prototype/dial_cycle.animation.json",
+    "animation_controller": [
+    {
+      "name": "dial_cycle",
+      "transition_tick_time": 1,
+      "animation": "dial_cycle",
+      "triggers": {
+        "dial_cycle": "dial_cycle"
+      }   
+    }
+  ],
+  "bones": {
+    "left_arm": "armorLeftArm"
+  },
+  "texture": {
+    "base": "ben10:textures/models/prototype/prototype.png",
+    "transformers": [{
+    "type": "palladium:alpha_mask",
+    "mask": "ben10:textures/models/alpha_masks/prototype/mask_#MASK.png"
+  }],
+  "variables": {
+    "MASK": {
+      "type": "palladium:ability_integer_property",
+      "power": "ben10:prototype/prototype",
+      "ability": "prime_mask",
+      "property": "value"
+    }
+    }
+  },
+  "output": "nc:textures/models/ben10/prototype/prototype.png"
+  }

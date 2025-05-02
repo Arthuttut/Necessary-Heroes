@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+      "   ",
+      " TW",
+      "   "
+    ],
+    "key": {
+      "T": {
+        "item": "nc:polymers/tri_polymer_white"
+      },
+      "W": {
+        "item": "minecraft:orange_dye"
+      }
+    },
+    "result": {
+      "item": "nc:polymers/tri_polymer_orange",
+      "count": 1
+    }
+  }
+  

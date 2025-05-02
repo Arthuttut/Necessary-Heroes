@@ -1,0 +1,52 @@
+{
+    "prototype.prime": {
+        "category": "player",
+        "sounds": [{ "name": "ben10:prototype/prototype_prime"}],
+        "subtitle": "prototype.prime"
+},
+"prototype.prime_idle": {
+    "category": "player",
+    "sounds": [{ "name": "ben10:prototype/prototype_prime_idle"}],
+    "subtitle": "prototype.prime_idle"
+},
+    "prototype.transform": {
+        "category": "player",
+        "sounds": [{ "name": "ben10:prototype/prototype_transform"}],
+        "subtitle": "prototype.transform"
+},
+    "prototype.timeout": {
+            "category": "player",
+            "sounds": [{ "name": "ben10:prototype/prototype_timeout"}],
+            "subtitle": "prototype.timeout"
+    },
+    "prototype.dial_cycle": {
+        "category": "player",
+        "sounds": [{ "name": "ben10:prototype/prototype_dial_cycle"}],
+        "subtitle": "prototype.dial_cycle"
+},
+"prototype.master_control": {
+    "category": "player",
+    "sounds": [{ "name": "ben10:prototype/prototype_master_control"}],
+    "subtitle": "prototype.master_control"
+},
+"recalibrated.prime": {
+        "category": "player",
+        "sounds": [{ "name": "ben10:recalibrated/recal_prime"}],
+        "subtitle": "recalibrated.prime"
+},
+"recalibrated.transform": {
+    "category": "player",
+    "sounds": [{ "name": "ben10:recalibrated/recal_transform"}],
+    "subtitle": "recalibrated.transform"
+},
+"recalibrated.destransform": {
+        "category": "player",
+        "sounds": [{ "name": "ben10:recalibrated/recal_destransform"}],
+        "subtitle": "recalibrated.destransform"
+},
+"recalibrated.dial_cycle": {
+    "category": "player",
+    "sounds": [{ "name": "ben10:recalibrated/recal_dial_cycle"}],
+    "subtitle": "recalibrated.dial_cycle"
+}
+}

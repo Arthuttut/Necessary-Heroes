@@ -1,0 +1,24 @@
+{
+    "icon": "nc:polymers/tri_polymer_light_blue",
+    "title": "NC: Core",
+    "items": [
+        "nc:hammer",
+        "nc:polymers/tri_polymer_white",
+        "nc:polymers/tri_polymer_gray",
+        "nc:polymers/tri_polymer_black",
+        "nc:polymers/tri_polymer_cyan",
+        "nc:polymers/tri_polymer_light_blue",
+        "nc:polymers/tri_polymer_blue",
+        "nc:polymers/tri_polymer_lime",
+        "nc:polymers/tri_polymer_green",
+        "nc:polymers/tri_polymer_pink",
+        "nc:polymers/tri_polymer_magenta",
+        "nc:polymers/tri_polymer_purple",
+        "nc:polymers/tri_polymer_orange",
+        "nc:polymers/tri_polymer_brown",
+        "nc:polymers/tri_polymer_yellow",
+        "nc:polymers/tri_polymer_red",
+        "nc:tech/reactor",
+        "nc:tech/cpu"
+    ]
+}

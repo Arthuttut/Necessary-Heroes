@@ -1,0 +1,46 @@
+[
+{
+    "type": "palladium:lightning",
+    "body_part": "right_arm",
+    "segments": 5,
+    "frequency": 2,
+    "spread": 5,
+    "glow_color": "#FFFF00",
+    "core_color": "#ffffff",
+    "rainbow": false,
+    "glow_opacity": 1,
+    "core_opacity": 1,
+    "bloom": 1,
+    "normal_transparency": false,
+    "rotation": 0,
+    "rotation_speed": 0,
+    "size":[2, 2],
+    "offset": [
+      -1,
+      -11,
+      0
+    ]
+},
+{
+"type": "palladium:lightning",
+    "body_part": "left_arm",
+    "segments": 5,
+    "frequency": 2,
+    "spread": 5,
+    "glow_color": "#FFFF00",
+    "core_color": "#ffffff",
+    "rainbow": false,
+    "glow_opacity": 1,
+    "core_opacity": 1,
+    "bloom": 1,
+    "normal_transparency": false,
+    "rotation": 0,
+    "rotation_speed": 0,
+    "size":[2, 2],
+    "offset": [
+      0,
+      -11,
+      0
+    ]
+}
+]

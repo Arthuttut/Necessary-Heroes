@@ -1,0 +1,21 @@
+modLoader = 'lowcodefml'
+showAsResourcePack = false
+loaderVersion="[47,)"
+license="MIT License"
+
+[[mods]]
+modId="nc"
+displayName="Necessary Heroes"
+version="1.0.2"
+logoFile = "logo.png"
+logoBlur = false
+description='''
+Necessary heroes for you minecraft.
+'''
+
+[[dependencies.nc]]
+modId = "palladium"
+mandatory = true
+versionRange = ">=4.2.1"
+ordering = "NONE"
+side = "BOTH"

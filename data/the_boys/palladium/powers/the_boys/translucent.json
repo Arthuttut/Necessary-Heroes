@@ -1,0 +1,41 @@
+{
+  "name": "Translucent",
+  "background": "minecraft:textures/block/red_wool.png",
+  "icon": "minecraft:coal",
+  "abilities": {
+    "command_ability": {
+      "type": "palladium:command",
+      "icon": "nc:textures/icon/gui/powers/invisibility.png",
+      "title": "Camouflage",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Camouflage",
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "effect give @s minecraft:invisibility 1 0 true"
+      ],
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle"
+        }
+      }
+    },
+    "resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Carbon Skin",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Because it has carbon skin, it provides great resistance and is almost indestructible.",
+      "attribute": "minecraft:generic.armor",
+      "amount": 450,
+      "operation": 0,
+      "uuid": "6fd79e2d-be93-4cd1-982d-864f2e39b15e"
+    }
+  }
+}

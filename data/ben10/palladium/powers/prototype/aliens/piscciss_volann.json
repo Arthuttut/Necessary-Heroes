@@ -1,0 +1,201 @@
+{
+    "name": "Piscciss Volann",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/piscciss_volann_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "name": {
+                "text": "Piscciss Volann"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/piscciss_volann/piscciss_volann.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }
+            }
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/piscciss_volann/piscciss_volann_timeout.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                }
+            }
+        },
+        "skin_change_water": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/piscciss_volann/piscciss_volann_water.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:is_in_water_or_bubble"
+                }
+            }
+        },
+        "skin_change_water_timeout": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/piscciss_volann/piscciss_volann_water_timeout.png",
+            "model_type": "keep",
+            "priority": 60,
+           "conditions": {
+                "enabling": [
+                    {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                    },
+                    {
+                        "type": "palladium:is_in_water_or_bubble"
+                    }
+                ]
+            }
+        },
+        "size": {
+            "type": "palladium:size",
+            "icon": "palladium:textures/icon/size.png",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "scale": 1.1
+        },
+        "speed_swim": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "forge:swim_speed",
+            "amount": 5,
+            "operation": 0,
+            "uuid": "4e5d452a-f352-41ca-a45a-8e6944703c36",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:is_swimming"
+                }
+            }
+        },
+        "haste": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:destroy_speed",
+            "amount": 7,
+            "operation": 0,
+            "uuid": "14561c1b-9df0-4348-82eb-0f7d74a16c6e",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:is_under_water"
+                }
+            }
+        },        
+        "water_breathing": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": ["effect clear"],
+            "commands": [
+                "effect give @s minecraft:water_breathing 1 255 true",
+                "effect give @s minecraft:night_vision 1 0 true"
+            ]
+        },
+        "wither": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": ["effect clear"],
+            "commands": [
+                "effect give @s minecraft:wither 2 0 true"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:is_in_water_or_bubble"
+                        }                        
+                    ]
+                }
+            }
+        }
+    }
+  }

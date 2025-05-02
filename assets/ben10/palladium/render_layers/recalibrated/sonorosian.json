@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/sonorosian.geo.json",
+    "texture": "nc:textures/entity/ben10/recalibrated/sonorosian/sonorosian.png"
+  }

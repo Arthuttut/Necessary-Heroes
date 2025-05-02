@@ -1,0 +1,240 @@
+{
+    "name": "Methanosian",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/methanosian/methanosian_activation.png",
+    "gui_display_type": "tree",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_omnitrix.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:crouching"
+                    }
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "Methanosian"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/recalibrated/methanosian/methanosian.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }
+            }
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/recalibrated/methanosian/methanosian_timeout.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 10
+                }
+            }
+        },
+        "healing": {
+            "type": "palladium:healing",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "frequency": 45,
+            "amount": 2
+        },
+        "resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "minecraft:generic.armor",
+            "amount": 15,
+            "operation": 0,
+            "uuid": "a5d94f29-d2de-4937-8285-b7bf354bb119"
+        },
+        "punch_damage": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 13,
+            "operation": 0,
+            "uuid": "af2e3ee5-9deb-4c59-9ebf-40d6d70abf75"
+        },
+        "fire_ball": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/pyronite/fireball.png",
+            "title": "Fire Ball",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": "null",
+            "description": "Releases a sphere of fire",
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "cast @s firebolt 7"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:action",
+                    "cooldown": 1.5,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                }
+            }
+        },
+       "flamethrower": {
+            "type": "palladium:dummy",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/pyronite/flamethrower.png",
+            "title": "Flamethrower",
+            "list_index": 1,
+            "hidden": true,
+            "hidden_in_bar": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle"
+                }
+            }
+        },
+        "right_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "main_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "flamethrower"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "left_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "left_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "left_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "flamethrower"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "right_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "flamethrower_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 5.5,
+            "max_distance": 25,
+            "speed": 0.1,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "right_aim"
+                }
+            }
+        },
+        "flamethrower_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 5.5,
+            "max_distance": 25,
+            "speed": 0.1,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "left_aim"
+                }
+            }
+        }, 
+            "fire_particle": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "nc:right_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                            "type": "palladium:ability_enabled",
+                            "ability": "flamethrower_right"
+                    }
+                }
+            },
+            "fire_particle_left": {
+                "type": "palladium:particles",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "emitter": "nc:left_hand",
+                "particle_type": "irons_spellbooks:fire",
+                "conditions": {
+                    "enabling": {
+                            "type": "palladium:ability_enabled",
+                            "ability": "flamethrower_left"
+                    }
+                }
+            }
+        }
+      }

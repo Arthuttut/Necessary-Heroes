@@ -1,0 +1,148 @@
+{
+    "name": "Bracelets",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "minecraft:apple",
+    "energy_bars": {
+      "energy": {
+        "max": 10000,
+        "color": "#fde910",
+        "synced_value": {
+       "type": "score",
+       "objective": "custom.energy",
+       "fallback": 0
+    }
+   }
+},
+    "abilities": {
+        "layer": {
+        "type": "palladium:render_layer",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "render_layer": "custom:bracelets/bracelets"
+        },
+        "scoreboard": {
+          "type": "palladium:command",
+          "hidden": true,
+          "hidden_in_bar": true,
+          "first_tick_commands": ["scoreboard objectives add custom.energy dummy"],
+          "last_tick_commands": [],
+          "commands": []
+      },
+      "energy_absorb": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "execute as @a at @s if entity @e[type=minecraft:lightning_bolt,distance=..1] run scoreboard players add @s custom.energy 45"
+        ]
+    },
+    "immunities": {
+      "type": "palladium:damage_immunity",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "damage_sources": [
+          "custom:bracelets"
+      ]
+  },
+        "aim": {
+            "type": "palladium:dummy",
+            "icon": "minecraft:apple",
+            "title": "Aim",
+            "list_index": 0,
+            "hidden": true,
+            "hidden_in_bar": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle"
+                }
+            }
+        },
+        "right_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 5,
+            "arm": "main_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "aim"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "left_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "left_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 5,
+            "arm": "left_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "aim"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "right_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "energy_beam_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 35,
+            "energy_beam": "custom:energy_beam",
+            "damage_type": "minecraft:lightning_bolt",
+            "max_distance": 50,
+            "speed": 0.5,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "right_aim"
+                }
+            }
+        },
+        "energy_beam_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage": 35,
+            "energy_beam": "custom:left_energy_beam",
+            "damage_type": "minecraft:lightning_bolt",
+            "max_distance": 50,
+            "speed": 0.5,
+            "set_on_fire_seconds": 7,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "left_aim"
+                }
+            }
+        },
+        "flight": {
+          "type": "palladium:attribute_modifier",
+          "hidden": true,
+          "hidden_in_bar": true,
+          "attribute": "palladium:flight_speed",
+          "amount": 1,
+          "operation": 0,
+          "uuid": "a2c7d812-6c0b-4219-a1c7-179450bd70ab"
+      }
+    }
+  }

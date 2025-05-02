@@ -1,0 +1,224 @@
+{
+    "name": "Petrosapien",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/petrosapien/petrosapien_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function ben10:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "layer": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "ben10:prototype/petrosapien"
+        },
+        "omnitrix_layer_timeout": {
+            "type": "palladium:render_layer",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "render_layer": "ben10:/prototype/petrosapien_timeout",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 10
+                }
+            }
+        },
+        "hide": {
+                "type": "palladium:hide_body_part",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "body_parts": [
+                    "right_arm",
+                    "left_arm",
+                    "head",
+                    "left_leg",
+                    "right_leg",
+                    "chest",
+                    "head_overlay",
+                    "chest_overlay",
+                    "right_arm_overlay",
+                    "left_arm_overlay",
+                    "right_leg_overlay",
+                    "left_leg_overlay"
+                ],
+                "affects_first_person": true
+        },
+            "name_change": {
+                "type": "palladium:name_change",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "name": {
+                    "text": "Petrosapien"
+                }
+            },
+            "size": {
+                "type": "palladium:size",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "scale": 1.3
+            },
+            "immunities": {
+                "type": "palladium:damage_immunity",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "damage_sources": [
+                    "minecraft:is_fire",
+                    "minecraft:arrow",
+                    "minecraft:is_poison",
+                    "minecraft:wither_immune"
+                ]
+            },
+            "resistance": {
+                "type": "palladium:attribute_modifier",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "list_index": -1,
+                "attribute": "minecraft:generic.armor",
+                "amount": 85,
+                "operation": 0,
+                "uuid": "782b3459-4dd7-42db-956a-ed3df606a287"
+            },
+            "punch_damage": {
+                "type": "palladium:attribute_modifier",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "attribute": "palladium:punch_damage",
+                "amount": 9,
+                "operation": 0,
+                "uuid": "f2406414-289b-49df-83b7-9db13c3e5a4a"
+            },
+            "aim": {
+                "type": "palladium:aim",
+                "icon": "minecraft:blaze_rod",
+                "title": "Spikes Shot",
+                "bar_color": "light_gray",
+                "hidden": false,
+                "hidden_in_bar": false,
+                "list_index": 0,
+                "gui_position": "null",
+                "description": "null",
+                "time": 3,
+                "arm": "main_arm",
+                "conditions": {
+                    "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false
+                    }
+                }
+            },
+            "spikes_shot": {
+                "type": "palladium:projectile",
+                "icon": "minecraft:snowball",
+                "bar_color": "light_gray",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "list_index": -1,
+                "entity_type": "minecraft:snowball",
+                "inaccuracy": 0,
+                "velocity": 1.5,
+                "swinging_arm": "main_arm",
+                "damage_from_player": false,
+                "ignore_player_movement": false,
+                "conditions": {
+                    "enabling": [
+                        {
+                        "type": "palladium:ability_enabled",
+                        "ability": "aim"
+                        },
+                        {
+                            "type": "palladium:action",
+                            "cooldown": 0.1,
+                            "key_type": "right_click",
+                            "needs_empty_hand": true
+                        }
+                    ]
+                    }
+            },
+            "tool_creation": {
+                "type": "palladium:dummy",
+                "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/petrosapien/tool_creation.png",
+                "title": "Tool Creation",
+                "hidden": true,
+                "hidden_in_bar": false,
+                "list_index": 1,
+                "description": "Make a tools in your hand",
+                "conditions": {
+                  "enabling": {
+                    "type": "palladium:toggle"
+                }
+                }
+            },
+              "tool": {
+                "type": "palladium:tool_hands",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "drop_block_tags": [
+                    "minecraft:mineable/pickaxe",
+                    "minecraft:needs_diamond_tool"
+                ],
+                "conditions": {
+                    "unlocking": [{
+                        "type": "palladium:empty_slot",
+                        "slot": "mainhand"
+                    },
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "tool_creation"
+                    }]
+                }
+            },
+            "tool_speed": {
+                "type": "palladium:attribute_modifier",
+                "hidden": true,
+                "hidden_in_bar": true,
+                "attribute": "palladium:destroy_speed",
+                "amount": 7,
+                "operation": 0,
+                "uuid": "51b06c14-5c04-4f49-90c5-1d34f3bc7542",
+                "conditions": {
+                    "unlocking": [{
+                        "type": "palladium:empty_slot",
+                        "slot": "mainhand"
+                    },
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "tool"
+                    }]
+                }
+            }
+      }
+    }

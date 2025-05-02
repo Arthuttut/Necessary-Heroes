@@ -1,0 +1,168 @@
+{
+    "name": "Tetramand",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/tetramand/tetramand_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "name": {
+                "text": "Tetramand"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/tetramand/tetramand.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }
+            }
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/tetramand/tetramand_timeout.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 10
+                }
+            }
+        },
+        "size": {
+            "type": "palladium:size",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "scale": 1.3
+        },
+        "strenght": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 20,
+            "operation": 0,
+            "uuid": "9c665dbe-46c1-46d8-9755-0219d9be663c"
+        },
+        "resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "minecraft:generic.armor",
+            "amount": 70,
+            "operation": 0,
+            "uuid": "66d72e0d-86a0-4b19-bbfc-a04f895e54aa"
+        },
+        "fall_resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:fall_resistance",
+            "amount": 99,
+            "operation": 0,
+            "uuid": "8f43def5-e5c2-4283-842a-ba38ec2846eb"
+        },
+        "jump_boost": {
+            "type": "palladium:attribute_modifier",
+            "icon": "nc:textures/icon/gui/powers/jump_boost.png",
+            "title": "Jump Boost",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": "null",
+            "description": "null",
+            "attribute": "palladium:jump_power",
+            "amount": 3,
+            "operation": 0,
+            "uuid": "2268ebf9-84bd-4835-8cf8-c7936d62bdde",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                }                
+            }
+        },
+        "leaping": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:leaping",
+            "amount": 3,
+            "operation": 0,
+            "uuid": "f82a65eb-d6fe-4f56-8fa5-3e413f79f1cc",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "jump_boost"
+                },
+                "unlocking": {
+                    "type": "palladium:sprinting"
+                }
+            }
+        }
+    }
+  }

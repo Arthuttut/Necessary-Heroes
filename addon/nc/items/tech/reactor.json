@@ -1,0 +1,13 @@
+{
+    "type": "palladium:flux_capacitor",
+    "capacity": 10000,
+    "max_input": 1000,
+    "max_output": 1000,
+    "max_stack_size": 1,
+    "rarity": "common",
+    "is_fire_resistant": false,
+    "creative_mode_tab": {
+        "tab": "nc:necessary_tab",
+        "after": "nc:tri_polymer_yellow"
+    }
+}

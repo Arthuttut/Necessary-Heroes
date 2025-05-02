@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "nnn",
+        "ngg",
+        "gg "
+    ],
+    "key": {
+        "n": {
+            "item": "nc:ingots/titanium_ingot"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "id": "nc:alloys/gold_titanium_alloy",
+        "count": 1
+    }
+}

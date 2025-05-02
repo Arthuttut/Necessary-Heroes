@@ -1,0 +1,588 @@
+{
+    "name": "Kineceleran",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/kineceleran/kineceleran_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "quick_change": {
+            "type": "nc:quick_change",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/quick_change.png",
+            "title": "Quick Change",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 4,
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                }
+            }
+        }, 
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "Kineceleran"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }                
+            }
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_timeout.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                }                
+            }
+        },
+        "kineceleran_mask": {
+            "type": "palladium:skin_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_mask.png",
+            "model_type": "keep",
+            "priority": 60,
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:objective_score",
+                        "objective": "kineceleran_speed",
+                        "min_score": 1,
+                        "max_score": 5
+                },
+                "unlocking": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }                        
+            }
+    },
+    "kineceleran_mask_timeout": {
+        "type": "palladium:skin_change",
+        "icon": "minecraft:blaze_rod",
+        "bar_color": "light_gray",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "list_index": -1,
+        "texture": "nc:textures/entity/ben10/prototype/kineceleran/kineceleran_mask_timeout.png",
+        "model_type": "keep",
+        "priority": 50,
+        "conditions": {
+            "enabling": {
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 0,
+                        "max_score": 10
+            },
+            "unlocking": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }                       
+        }
+},
+    "resistance": {
+        "type": "palladium:attribute_modifier",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "attribute": "minecraft:generic.armor",
+        "amount": 25,
+        "operation": 0,
+        "uuid": "498be4fb-af04-42f2-8948-e6ccdc0d99e1"
+    },
+    "night_vision": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": ["effect clear"],
+        "commands": [
+            "effect give @s minecraft:night_vision 1 0 true"
+        ],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }
+        }
+    },
+    "speed_adjust": {
+        "type": "palladium:dummy",
+        "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/kineceleran/speed_adjust.png",
+        "title": "SpeedAdjust",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": false,
+        "list_index": 0,
+        "gui_position": "null",
+        "description": "Adjust you speed",
+        "conditions": {
+          "enabling": {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+        }
+        }
+    },
+    "speed_up": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "scoreboard players add @s kineceleran_speed 1"
+        ],
+      "conditions": {
+        "enabling": [
+             {
+              "type": "palladium:action",
+              "cooldown": 0,
+              "key_type": "scroll_up",
+              "needs_empty_hand": false,
+              "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:objective_score",
+              "objective": "kineceleran_speed",
+              "min_score": 5,
+              "max_score": 5
+          }
+        }
+            ],
+            "unlocking": {
+              "type": "palladium:ability_enabled",
+              "ability": "speed_adjust"
+          }
+          }
+    },
+      "speed_down": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "scoreboard players remove @s kineceleran_speed 1"
+        ],
+      "conditions": {
+        "enabling": [
+             {
+              "type": "palladium:action",
+              "cooldown": 0,
+              "key_type": "scroll_down",
+              "needs_empty_hand": false,
+              "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:objective_score",
+              "objective": "kineceleran_speed",
+              "min_score": 0,
+              "max_score": 0
+          }
+        }
+            ],
+            "unlocking": {
+              "type": "palladium:ability_enabled",
+              "ability": "speed_adjust"
+          }
+          }
+      },
+      "barrage": {
+        "type": "palladium:command",
+        "icon": "nc:textures/icon/gui/powers/barrage.png",
+        "title": "Barrage",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": false,
+        "list_index": 1,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "effect give @s minecraft:hunger 1 1 true",
+            "playsound minecraft:entity.player.attack.strong master @s ~ ~ ~ 1 1.4"
+        ],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:held",
+                "cooldown": 0,
+                "key_type": "key_bind",
+                "needs_empty_hand": false
+            }            
+        }
+    },
+    "barrage_damage": {
+        "type": "palladium:projectile",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "entity_type": "palladium:custom_projectile",
+        "entity_data": {
+            "Damage": 4,
+               "Gravity": 0.00,
+               "Size": 1.2,
+               "Lifetime": 2,
+               "DieOnEntityHit": false,
+               "DieOnBlockHit": false
+           },
+        "inaccuracy": 0,
+        "velocity": 1.5,
+        "swinging_arm": "none",
+        "damage_from_player": false,
+        "ignore_player_movement": false,
+        "conditions": {
+            "enabling": {
+                "type": "palladium:ability_enabled",
+                "ability": "barrage"
+            }
+        }
+    },
+    "barrage_animation": {
+        "type": "palladium:animation_timer",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "start_value": 0,
+        "max_value": 20,
+        "conditions": {
+            "unlocking": {
+                "type": "palladium:ability_enabled",
+                "ability": "barrage"
+            }            
+        }
+    },
+    "show_arms": {
+        "type": "palladium:show_both_arms",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "conditions": {
+            "unlocking": {
+                "type": "palladium:ability_enabled",
+                "ability": "barrage_animation"
+            }            
+        }
+    },
+      "trail": {
+        "type": "palladium:trail",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "trail": "nc:ben10/kineceleran",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }
+        }
+    },
+      "speed_ten": {
+        "type": "palladium:attribute_modifier",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.7,
+        "operation": 0,
+        "uuid": "c37ce8c9-b1f7-4088-9eb9-3c5860c020ac",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 1
+            }
+        }
+    },
+    "destroy_speed": {
+        "type": "palladium:attribute_modifier",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "attribute": "palladium:destroy_speed",
+        "amount": 15,
+        "operation": 0,
+        "uuid": "a6a215f9-f4c9-4653-bff6-ae950fa3fa56"
+    },
+    "speed_twenty": {
+        "type": "palladium:attribute_modifier",
+        "icon": "minecraft:iron_chestplate",
+        "title": "null",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": 2,
+        "gui_position": "null",
+        "description": "null",
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 0.9,
+        "operation": 0,
+        "uuid": "e1bfc344-2c92-4600-9dd1-433d4580e37c",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 2,
+                "max_score": 2
+            }
+        }
+    },
+    "speed_thirty": {
+        "type": "palladium:attribute_modifier",
+        "icon": "minecraft:iron_chestplate",
+        "title": "null",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": 3,
+        "gui_position": "null",
+        "description": "null",
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 1.1,
+        "operation": 0,
+        "uuid": "c1ca2818-b056-4b5a-bb30-3a84ec2011b9",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 3,
+                "max_score": 3
+            }
+        }
+    },
+    "speed_forty": {
+        "type": "palladium:attribute_modifier",
+        "icon": "minecraft:iron_chestplate",
+        "title": "null",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": 4,
+        "gui_position": "null",
+        "description": "null",
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 1.3,
+        "operation": 0,
+        "uuid": "5a033282-edee-4ace-8f6a-fe710e8df8a3",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 4,
+                "max_score": 4
+            }
+        }
+    },
+    "speed_fifty": {
+        "type": "palladium:attribute_modifier",
+        "icon": "minecraft:iron_chestplate",
+        "title": "null",
+        "bar_color": "light_gray",
+        "hidden": false,
+        "hidden_in_bar": true,
+        "list_index": 5,
+        "gui_position": "null",
+        "description": "null",
+        "attribute": "minecraft:generic.movement_speed",
+        "amount": 1.5,
+        "operation": 0,
+        "uuid": "be3a3830-bd54-4649-bed8-421e552bf456",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 5,
+                "max_score": 5
+            }
+        }
+    },
+    "slow_motion": {
+        "type": "palladium:command",
+        "icon": "minecraft:command_block",
+        "title": "Slow Motion",
+        "bar_color": "light_gray",
+        "list_index": 2,
+        "hidden": false,
+        "hidden_in_bar": false,
+        "first_tick_commands": [
+        ],
+        "last_tick_commands": ["execute as @e run setTickrate @s 20"],
+        "commands": [
+            "execute as @e run setTickrate @s 0",
+            "setTickrate @s 0.1"
+        ],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:toggle",
+                "cooldown": 0,
+                "key_type": "key_bind",
+                "needs_empty_hand": false,
+                "allow_scrolling_when_crouching": true
+            }            
+        }
+    },
+    "no_hunger": {
+        "type": "nc:hunger_freeze",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "conditions": {
+            "unlocking": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }
+        }
+    },    
+    "water_walk": {
+        "type": "palladium:water_walk",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "conditions": {
+            "enabling": [
+                {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 2,
+                "max_score": 5
+                },
+                {
+                    "type": "palladium:sprinting"
+                }
+            ]
+            }
+    },
+    "step_assist": {
+        "type": "palladium:attribute_modifier",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "attribute": "forge:step_height_addition",
+        "amount": 1.4,
+        "operation": 0,
+        "uuid": "b2b18372-a60b-4f02-956c-dbcdf5cf8edf",
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }
+        }
+    },
+    "immunities": {
+        "type": "palladium:damage_immunity",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "damage_sources": [
+            "minecraft:is_fire"
+        ]
+    },
+    "fall_resistance": {
+        "type": "palladium:damage_immunity",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "damage_sources": [
+            "minecraft:is_fall"
+        ],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:objective_score",
+                "objective": "kineceleran_speed",
+                "min_score": 1,
+                "max_score": 5
+            }
+        }
+    }
+  },
+  "energy_bars": {
+    "speedforce_energy_bar": {
+        "max": 5,
+        "color": "#0E788D",
+        "synced_value": {
+       "type": "score",
+       "objective": "kineceleran_speed",
+       "fallback": 0
+    }
+   }
+ }
+}

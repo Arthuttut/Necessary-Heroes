@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/ben10/prototype/prototype.geo.json",
+    "texture": "nc:textures/models/ben10/prototype/prototype_timeout0.png"
+  }

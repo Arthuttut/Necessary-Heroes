@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/recalibrated.geo.json",
+    "texture": "nc:textures/models/ben10/recalibrated/recalibrated.png"
+  }

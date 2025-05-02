@@ -1,0 +1,30 @@
+{
+  "pack": {
+    "id": "nc",
+    "description": "Necessary heroes for you minecraft.",
+    "pack_format": 15,
+    "version": "1.0.2"
+  },
+  "dependencies": {
+    "common": {
+      "minecraft": ">=1.20",
+      "palladium": ">=4.2.0",
+      "irons_spellbooks": "*",
+      "pehkui": "*",
+      "kubejs": "*",  
+      "geckolib": "*",
+      "heroes": "*"
+    },
+     "custom": {
+    "curios": {
+      "head": true,
+      "necklace": true,
+      "body": true,
+      "back": true,
+      "belt": true,
+      "ring": true,
+      "hands": true
+    }
+    }
+  }
+}

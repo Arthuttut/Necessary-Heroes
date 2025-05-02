@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "ben10:geo/prototype/galvan.geo.json",
+    "texture": "ben10:textures/entity/prototype/galvan/galvan.png"
+  }

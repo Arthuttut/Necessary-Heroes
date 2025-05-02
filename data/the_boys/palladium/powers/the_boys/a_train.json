@@ -1,0 +1,124 @@
+{
+  "name": "A-Train",
+  "background": "minecraft:textures/block/red_wool.png",
+  "icon": "nc:textures/icon/gui/powers/a_train.png",
+  "abilities": {
+    "water_walk": {
+      "type": "palladium:water_walk",
+      "icon": "minecraft:water_bucket",
+      "title": "Water Run",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Allows you to run on water due to high speed.",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:and",
+          "conditions": [
+            {
+              "type": "palladium:ability_enabled",
+              "power": "nc:the_boys/a_train",
+              "ability": "speed"
+            },
+            {
+              "type": "palladium:sprinting"
+            }
+          ]
+        }
+      }
+    },
+    "speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "nc:textures/icon/gui/powers/a_train.png",
+      "title": "I Can't Stop",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Gain enhanced speed when activated.",
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.9,
+      "operation": 0,
+      "uuid": "993bb4ee-270f-4f92-861e-61ef1aeac5be",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle",
+          "cooldown": 340
+        }
+      }
+    },
+    "healing": {
+      "type": "palladium:healing",
+      "icon": "minecraft:apple",
+      "title": "Healing Factor",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": -1,
+      "description": "Due to heightened metabolism, you gain double regeneration.",
+      "frequency": 40,
+      "amount": 2
+    },
+    "haste": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Increased Haste",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Gain increased block-breaking speed.",
+      "attribute": "palladium:destroy_speed",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "1dc1e401-e7e2-4595-87c0-bda5d88542f4"
+    },
+    "trail": {
+      "type": "palladium:trail",
+      "icon": "minecraft:blaze_rod",
+      "title": "Speed Trail",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Leaves a trail while running.",
+      "trail": "nc:trail",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:ability_enabled",
+          "power": "nc:the_boys/a_train",
+          "ability": "speed"
+        }
+      }
+    },
+    "super_strength": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_sword",
+      "title": "Super Strength",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Grants enhanced punching strength.",
+      "attribute": "palladium:punch_damage",
+      "amount": 8,
+      "operation": 0,
+      "uuid": "54e2c098-1942-4aa0-921b-fb3a3487a142"
+    },
+    "resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Enhanced Resistance",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "Grants increased armor resistance.",
+      "attribute": "minecraft:generic.armor",
+      "amount": 10,
+      "operation": 0,
+      "uuid": "27339d7a-6b2a-4302-814e-4b3394519cb5"
+    }
+  }
+}

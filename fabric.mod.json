@@ -1,0 +1,11 @@
+{
+    "schemaVersion": 1,
+    "authors": ["Arthuttut"],
+    "environment": "*",
+    "name": "Necessary Heroes",
+    "id": "nc",
+    "version": "1.0.2",
+    "description": "Necessary heroes for your Minecraft.",
+    "icon": "logo.png",
+    "license": "MIT License"
+}

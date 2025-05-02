@@ -1,0 +1,251 @@
+{
+    "name": "Crystalsapien",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/crystalsapien/crystalsapien_activation.png",
+    "energy_bars": {
+        "absorbed_energy": {
+            "max": 10000,
+            "color": "#8A2BE2",
+            "synced_value": {
+           "type": "score",
+           "objective": "absorbed_energy",
+           "fallback": 0
+        }
+       }
+     },
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/recalibrated/recal_omnitrix.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/recalibrated/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": {
+                    "type": "palladium:crouching"
+                    }
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "Crystalsapien"
+            }
+        },
+        "size": {
+            "type": "palladium:size",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "scale": 1.2
+        },
+        "strenght": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 15,
+            "operation": 0,
+            "uuid": "1e8f2524-9a0c-4de1-90f2-436ebcf166a5"
+        },
+        "resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "minecraft:generic.armor",
+            "amount": 32.5,
+            "operation": 0,
+            "uuid": "d71a363d-4fe7-4d09-8e23-7989c49c9015"
+        },
+        "fly": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:flight_speed",
+            "amount": 1.7,
+            "operation": 0,
+            "uuid": "bcc6ed3a-e109-46a5-8d9f-764b549f1061"
+        },
+        "immunities": {
+            "type": "palladium:damage_immunity",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "damage_sources": [
+                "nc:ben10/recalibrated/crystalsapien"
+            ],
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:health",
+                    "min_health": 0,
+                    "max_health": 16
+                }
+            }
+        },
+        "regen": {
+            "type": "palladium:healing",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "frequency": 90,
+            "amount": 90,
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:objective_score",
+                    "objective": "absorbed_energy",
+                    "min_score": 800,
+                    "max_score": 10000
+                }
+            }
+        },
+        "redirect": {
+            "type": "palladium:dummy",
+            "icon": "nc:textures/icon/gui/powers/recalibrated_omnitrix/crystalsapien/crystalsapien_energy_beam.png",
+            "title": "Redirect",
+            "list_index": 0,
+            "hidden": true,
+            "hidden_in_bar": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle"
+                }
+            }
+        },
+        "right_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "main_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "redirect"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "left_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "left_aim": {
+            "type": "palladium:aim",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "time": 3,
+            "arm": "left_arm",
+            "conditions": {
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "redirect"
+                },
+                "enabling": {
+                        "type": "palladium:held",
+                        "cooldown": 0,
+                        "key_type": "right_click",
+                        "needs_empty_hand": false                  
+                }             
+            }
+        },
+        "energy_beam_right": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "energy_beam": "nc:crystalsapien_right",
+            "damage": 20,
+            "max_distance": 35,
+            "speed": 0.5,
+            "set_on_fire_seconds": 0,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "right_aim"
+                }
+            }
+        },
+        "energy_beam_left": {
+            "type": "palladium:energy_beam",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "energy_beam": "nc:crystalsapien_left",
+            "damage": 20,
+            "max_distance": 35,
+            "speed": 0.5,
+            "set_on_fire_seconds": 0,
+            "cause_fire": true,
+            "smelt_blocks": false,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "left_aim"
+                }
+            }
+        },
+        "absorbed_energy_discharge": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "scoreboard players remove @s absorbed_energy 10"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:or",
+                    "conditions": [
+                        {
+                            "type": "palladium:ability_enabled",
+                            "ability": "energy_beam_left"
+                        },
+                        {
+                            "type": "palladium:ability_enabled",
+                            "ability": "energy_beam_right"
+                        }                          
+                    ]
+                }
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/recalibrated/crystalsapien/crystalsapien.png",
+            "model_type": "keep",
+            "priority": 50
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/recalibrated/crystalsapien/crystalsapien_timeout.png",
+            "model_type": "keep",
+            "priority": 60,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:objective_score",
+                    "objective": "omnitrix_timer",
+                    "min_score": 0,
+                    "max_score": 10
+                }
+            }
+        }
+    }
+    }

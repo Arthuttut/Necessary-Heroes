@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/ben10/prototype/omnitrix_galvan_position.geo.json",
+    "texture": "nc:textures/entity/ben10/prototype/galvan/omnitrix_galvan_position_timeout.png"
+  }

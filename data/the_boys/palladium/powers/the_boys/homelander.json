@@ -1,0 +1,151 @@
+{
+  "name": "Homelander",
+  "background": "minecraft:textures/block/red_wool.png",
+  "icon": "minecraft:apple",
+  "abilities": {
+    "laser_eyes": {
+      "type": "palladium:energy_beam",
+      "icon": "nc:textures/icon/gui/powers/laser.png",
+      "title": "Heat Vision",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "list_index": 0,
+      "energy_beam": "nc:laser_eyes",
+      "damage": 25,
+      "max_distance": 30,
+      "speed": 0.5,
+      "set_on_fire_seconds": 5,
+      "cause_fire": true,
+      "smelt_blocks": true,
+      "conditions": {
+        "enabling": {
+              "type": "palladium:held",
+              "cooldown": 128
+            }
+        }
+      },
+    "xray":{
+      "type": "palladium:entity_glow",
+      "icon": "minecraft:glow_berries",
+      "title": "Xray Vision",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 2,
+      "mode": "others",
+      "distance": 50,
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle"
+        }
+      }
+  },
+    "flight": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:feather",
+      "title": "Flight",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "palladium:flight_speed",
+      "amount": 2.5,
+      "operation": 0,
+      "uuid": "bcee27d3-1cf9-43ca-bcae-4c4abcd421ba"
+    },
+    "super_strength": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_sword",
+      "title": "Super Strength",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "palladium:punch_damage",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "d301ef49-02df-4b86-90c4-6276fa31268d"
+    },
+    "resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Resistance",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "minecraft:generic.armor",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "e65adf99-99e8-4e78-8417-9fe53c4dc1c0"
+    },
+    "health": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Health",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "minecraft:generic.max_health",
+      "amount": 7,
+      "operation": 0,
+      "uuid": "83eb0bc3-ea7d-4b9f-88f3-20f32822c5e7"
+    },
+    "attack_knockback": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Attack Knockback",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "minecraft:generic.attack_knockback",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "3223d7de-6932-49de-bc2e-997f9062cf97"
+    },
+    "knockback_resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Knockback Resistance",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "minecraft:generic.knockback_resistance",
+      "amount": 5,
+      "operation": 0,
+      "uuid": "55214696-a8d6-4a34-992d-32a42b81bcae"
+    },
+    "fall_resistance": {
+      "type": "palladium:attribute_modifier",
+      "icon": "minecraft:iron_chestplate",
+      "title": "Fall Resistance",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "attribute": "palladium:fall_resistance",
+      "amount": 20,
+      "operation": 0,
+      "uuid": "ec39e7a5-c369-4e3f-b4d6-d40448ec2177"
+    },
+    "super_speed": {
+      "type": "palladium:attribute_modifier",
+      "icon": "nc:textures/icon/gui/powers/a_train.png",
+      "title": "Super Speed",
+      "bar_color": "light_gray",
+      "hidden": false,
+      "list_index": 1,
+      "attribute": "minecraft:generic.movement_speed",
+      "amount": 0.6,
+      "operation": 0,
+      "uuid": "bb9f59a4-dc15-41e5-90af-765f53fe44e3",
+      "conditions": {
+        "enabling": {
+          "type": "palladium:toggle",
+          "cooldown": 250
+        }
+      }
+    },
+    "damage_immunity": {
+      "type": "palladium:damage_immunity",
+      "icon": "minecraft:potion",
+      "title": "Damage Immunity",
+      "bar_color": "light_gray",
+      "hidden": true,
+      "damage_sources": [
+        "minecraft:is_fire",
+        "minecraft:is_arrow"
+      ]
+      }
+     }
+    }
+    

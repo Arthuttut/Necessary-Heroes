@@ -1,0 +1,270 @@
+{
+    "name": "Ectonurite",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "icon": "minecraft:blaze_rod",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "name": {
+                "text": "Ectonurite"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:not",
+                    "conditions": [
+                        {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                        }
+                    ]
+                }
+            }
+        },
+        "skin_change_timeout": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_timeout.png",
+            "model_type": "keep",
+            "priority": 50,
+            "conditions": {
+                "enabling": {
+                            "type": "palladium:objective_score",
+                            "objective": "omnitrix_timer",
+                            "min_score": 0,
+                            "max_score": 10
+                }
+            }
+        },
+        "skin_change_phasing": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_transparent.png",
+            "model_type": "keep",
+            "priority": 60,
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:ability_enabled",
+                        "ability": "intangibility"
+                }
+            }
+        },
+        "skin_change_phasing_timeout": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "list_index": -1,
+            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_transparent_timeout.png",
+            "model_type": "keep",
+            "priority": 60,
+            "conditions": {
+                "enabling": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "intangibility"
+                    },
+                    {
+                        "type": "palladium:objective_score",
+                        "objective": "omnitrix_timer",
+                        "min_score": 0,
+                        "max_score": 10
+                    }
+                ]
+            }
+        },
+            "fly": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:flight_speed",
+            "amount": 1,
+            "operation": 0,
+            "uuid": "1717b412-00f3-4cf3-9548-4147bc01ac5c"
+        },
+        "night_vision": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": ["effect clear"],
+            "commands": [
+                "effect give @s minecraft:night_vision 1 0 true",
+                "effect give @s minecraft:saturation 1 0 true",
+                "effect give @s minecraft:water_breathing 1 0 true"
+            ]
+        },
+        "intangibility": {
+            "type": "palladium:intangibility",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_intangibility.png",
+            "title": "Intangibility",
+            "bar_color": "light_gray",
+            "hidden": false,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "gui_position": "null",
+            "description": "null",
+            "vertical": false,
+            "whitelist": "null",
+            "blacklist": "palladium:prevents_intangibility",
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                }                
+            }
+        },
+        "intangibility_weakness": {
+            "type": "palladium:command",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "first_tick_commands": [],
+            "last_tick_commands": ["effect clear"],
+            "commands": [
+                "effect give @s minecraft:mining_fatigue 1 255 true",
+                "effect give @s minecraft:weakness 1 255 true"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "intangibility"
+                }
+            }
+        },
+        "intangibility_immunities": {
+            "type": "palladium:damage_immunity",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "gui_position": "null",
+            "description": "null",
+            "damage_sources": [
+                "nc:ben10/prototype/ectonurite"
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "intangibility"
+                }
+            }
+        },
+        "immunities": {
+            "type": "palladium:damage_immunity",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "gui_position": "null",
+            "description": "null",
+            "damage_sources": [
+                "minecraft:is_fall"
+            ]
+        },
+        "vertical_intangibility": {
+            "type": "palladium:intangibility",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "vertical": true,
+            "whitelist": "null",
+            "blacklist": "palladium:prevents_intangibility",
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:or",
+                        "conditions": [
+                            {
+                                "type": "palladium:crouching"
+                            },
+                            {
+                                "type": "palladium:is_hovering_or_levitating"
+                            }                            
+                        ]
+                },
+                "unlocking": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "intangibility"
+                }
+            }
+        },
+        "invisibility" : {
+            "type": "palladium:command",
+            "hidden": false,
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_invisibility.png",
+            "list_index": 1,
+            "hidden_in_bar": false,
+            "first_tick_commands": ["effect give @s minecraft:invisibility infinite 0 true"],
+            "last_tick_commands": ["effect clear"],
+            "commands": [
+            ],
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:toggle",
+                    "cooldown": 0,
+                    "key_type": "key_bind",
+                    "needs_empty_hand": false,
+                    "allow_scrolling_when_crouching": true
+                }
+            }
+        },
+        "invisibility2": {
+            "type": "palladium:invisibility",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "conditions": {
+                "enabling": {
+                    "type": "palladium:ability_enabled",
+                    "ability": "invisibility"
+                }
+            }
+        }   
+    }
+  }

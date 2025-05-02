@@ -1,0 +1,88 @@
+{
+    "name": "To'kustar",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/to_kustar/to_kustar_activation_os.png",
+    "abilities": {
+        "untransfoarm": {
+            "type": "palladium:command",
+            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "title": "Untransform",
+            "bar_color": "light_gray",
+            "hidden": true,
+            "hidden_in_bar": false,
+            "list_index": 0,
+            "first_tick_commands": [],
+            "last_tick_commands": [],
+            "commands": [
+                "function nc:omnitrix/prototype/untransform"
+            ],
+            "conditions": {
+                "enabling": {
+                        "type": "palladium:action",
+                        "cooldown": 0,
+                        "key_type": "key_bind",
+                        "needs_empty_hand": false,
+                        "allow_scrolling_when_crouching": true
+                },
+                "unlocking": [
+                    {
+                    "type": "palladium:crouching"
+                    },
+                    {
+                        "type": "palladium:has_tag",
+                        "tag": "master_control"
+                    }
+                ]
+            }
+        },
+        "size": {
+            "type": "palladium:size",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "scale": 13
+        },
+        "name_change": {
+            "type": "palladium:name_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "name": {
+                "text": "To'kustar"
+            }
+        },
+        "skin_change": {
+            "type": "palladium:skin_change",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "texture": "nc:textures/entity/ben10/prototype/to_kustar/to_kustar.png",
+            "model_type": "keep",
+            "priority": 50
+        },
+        "resistance": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "minecraft:generic.armor",
+            "amount": 280,
+            "operation": 0,
+            "uuid": "a23df27d-613d-407f-9796-5f7bd89ae044"
+        },
+        "strenght": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 95,
+            "operation": 0,
+            "uuid": "e0201ed2-a55e-49c3-89e3-7508ea359973"
+        },
+        "health": {
+            "type": "palladium:attribute_modifier",
+            "hidden": true,
+            "hidden_in_bar": true,
+            "attribute": "palladium:punch_damage",
+            "amount": 95,
+            "operation": 0,
+            "uuid": "e0201ed2-a55e-49c3-89e3-7508ea359973"
+        }
+    }
+  }

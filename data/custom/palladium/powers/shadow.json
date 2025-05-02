@@ -1,0 +1,174 @@
+{
+    "name": "Shadows",
+    "background": "minecraft:textures/block/red_wool.png",
+    "icon": "minecraft:apple",
+    "abilities": {
+        "shadow_choice": {
+        "type": "palladium:dummy",
+        "icon": "minecraft:apple",
+        "title": "Shadow Choice",
+        "bar_color": "light_gray",
+        "hidden": true,
+        "hidden_in_bar": false,
+        "list_index": 0,
+        "description": "Choose your shade",
+        "conditions": {
+          "enabling": {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+        }
+        }
+    },
+    "shadow_choice_animation": {
+        "type": "palladium:animation_timer",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "start_value": 1,
+        "max_value": 10,
+        "conditions": {
+            "enabling": {
+                "type": "palladium:ability_enabled",
+                "ability": "shadow_choice"
+            }            
+        }
+    },    
+    "shadow_absorb": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "description": "Use this in your shadows",
+        "first_tick_commands": ["gamerule showDeathMessages false"],
+        "last_tick_commands": ["gamerule showDeathMessages true"],
+        "commands": [
+            "execute as @e[type=wolf,tag=custom.divine_dog] at @s if entity @p[distance=..5] run effect give @s minecraft:invisibility infinite 1 true",
+            "kill @e[type=minecraft:wolf,tag=custom.divine_dog,distance=..5]"
+        ],
+        "conditions": {
+            "enabling": {
+                "type": "palladium:action",
+                "cooldown": 0,
+                "key_type": "right_click",
+                "needs_empty_hand": false,
+                "allow_scrolling_when_crouching": true
+            },
+            "unlocking": {
+                "type": "palladium:crouching"
+            }
+        }
+    },
+    "shadow_creation": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": ["scoreboard players set @s custom.shadow 1"],
+        "commands": [
+            "scoreboard objectives add custom.shadow dummy"
+        ]
+    },
+    "shadow_up": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "scoreboard players add @s custom.shadow 1"
+        ],
+      "conditions": {
+        "enabling": [
+             {
+              "type": "palladium:action",
+              "cooldown": 0,
+              "key_type": "scroll_up",
+              "needs_empty_hand": false,
+              "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:objective_score",
+              "objective": "custom.shadow",
+              "min_score": 10,
+              "max_score": 10
+          }
+        }
+            ],
+            "unlocking": {
+              "type": "palladium:ability_enabled",
+              "ability": "shadow_choice"
+          }
+          }
+    },
+      "shadow_down": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "scoreboard players remove @s custom.shadow 1"
+        ],
+      "conditions": {
+        "enabling": [
+             {
+              "type": "palladium:action",
+              "cooldown": 0,
+              "key_type": "scroll_down",
+              "needs_empty_hand": false,
+              "allow_scrolling_when_crouching": true
+          },
+          {
+            "type": "palladium:not",
+            "conditions": {
+              "type": "palladium:objective_score",
+              "objective": "custom.shadow",
+              "min_score": 1,
+              "max_score": 1
+          }
+        }
+            ],
+            "unlocking": {
+              "type": "palladium:ability_enabled",
+              "ability": "shadow_choice"
+          }
+          }
+      },
+      "divine_dogs": {
+        "type": "palladium:command",
+        "hidden": true,
+        "hidden_in_bar": true,
+        "first_tick_commands": [],
+        "last_tick_commands": [],
+        "commands": [
+            "summon minecraft:wolf ~ ~ ~ {Tags:[\"custom.divine_dog\"],CustomName:'{\"text\":\"Divine Dog\"}',Health:40.0f,Attributes:[  {Name:\"minecraft:generic.max_health\",Base:40.0}],Silent:1b,DeathLootTable:\"minecraft:empty\"}",
+            "data modify entity @e[type=wolf,sort=nearest,limit=1,tag=custom.divine_dog] Owner set from entity @s UUID"
+        ],
+        "conditions": {
+            "unlocking": {
+                "type": "palladium:and",
+                "conditions": [
+                    {
+                        "type": "palladium:ability_enabled",
+                        "ability": "shadow_choice"
+                    },
+                    {
+                        "type": "palladium:objective_score",
+                        "objective": "custom.shadow",
+                        "min_score": 1,
+                        "max_score": 1
+                    }
+                ]
+            },
+            "enabling": {
+                "type": "palladium:action",
+                "cooldown": 0,
+                "key_type": "right_click",
+                "needs_empty_hand": false,
+                "allow_scrolling_when_crouching": true
+            }       
+        }
+    }
+    }
+  }

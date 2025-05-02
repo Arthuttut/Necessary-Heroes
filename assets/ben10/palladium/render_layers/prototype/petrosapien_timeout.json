@@ -1,0 +1,5 @@
+{
+    "type": "geckolib:default",
+    "model": "nc:geo/petrosapien.geo.json",
+    "texture": "nc:textures/entity/ben10/prototype/petrosapien/petrosapien_timeout.png"
+  }

@@ -1,0 +1,13 @@
+{
+    "values": [
+    "minecraft:arrow",
+    "minecraft:freeze",
+    "ad_astra:oxygen",
+    "minecraft:on_fire",
+    "minecraft:in_fire",
+    "minecraft:magic",
+    "minecraft:indirect_magic",
+    "minecraft:lightning_bolt",
+    "minecraft:drown"
+  ]
+}
