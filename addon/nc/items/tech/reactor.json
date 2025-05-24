@@ -8,6 +8,6 @@
     "is_fire_resistant": false,
     "creative_mode_tab": {
         "tab": "nc:necessary_tab",
-        "after": "nc:tri_polymer_yellow"
+        "after": "nc:yellow"
     }
 }

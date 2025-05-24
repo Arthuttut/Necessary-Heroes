@@ -1,9 +1,5 @@
 {
     "max_stack_size": 64,
     "rarity": "common",
-    "is_fire_resistant": false,
-    "creative_mode_tab": {
-        "tab": "minecraft:ingredients",
-        "after": "palladium:raw_titanium"
-    }
+    "is_fire_resistant": false
 }

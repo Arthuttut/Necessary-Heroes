@@ -1,0 +1,55 @@
+{
+  "type": "palladium:compound",
+  "layers": [
+    {
+      "type": "geckolib:default",
+    "model": "generator_rex:geo/nanite_control/boogie_pack.geo.json",
+    "conditions": {
+      "type": "palladium:is_hovering_or_flying"
+  },
+    "animation_file": "generator_rex:animations/nanite_control/boogie_pack_fan_rotation.animation.json",
+    "animation_controller": [
+    {
+      "name": "fan_rotation",
+      "transition_tick_time": 1,
+      "animation": "fan_rotation",
+      "triggers": {
+        "fan_rotation": "fan_rotation"
+      }   
+    }
+  ],
+  "bones": {
+    "body": "armorBody"
+  },
+    "texture": "generator_rex:textures/entity/nanite_control/boogie_pack.png"
+    },
+    {   
+    "type": "geckolib:default",
+    "model": "generator_rex:geo/nanite_control/boogie_pack.geo.json",
+    "conditions": {
+      "type": "palladium:not",
+      "conditions": [{
+        "type": "palladium:is_hovering_or_flying"
+    }]
+  },
+    "texture": {
+    "base": "generator_rex:textures/entity/nanite_control/boogie_pack.png",
+    "transformers": [
+        {
+         "type": "palladium:alpha_mask",
+          "mask": "generator_rex:textures/models/alpha_masks/nanite_control/boogie_pack/mask_#MASK.png"
+        }
+                ],
+        "variables": {
+        "MASK": {
+        "type": "palladium:ability_integer_property",
+        "power": "generator_rex:nanite_control",
+        "ability": "boogie_pack_mask",
+        "property": "value"
+                  }
+                },
+                "output": "generator_rex:textures/entity/nanite_control/boogie_pack.png"
+            }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "iii",
+        "iCC",
+        "CC "
+    ],
+    "key": {
+        "i": {
+            "item": "nc:dust/iron_dust"
+        },
+        "C": {
+            "item": "nc:dust/coal_dust"
+        }
+    },
+    "result": {
+        "item": "nc:dust/steel_dust",
+        "count": 1
+    }
+}

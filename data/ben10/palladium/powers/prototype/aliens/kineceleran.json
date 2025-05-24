@@ -5,7 +5,7 @@
     "abilities": {
         "untransfoarm": {
             "type": "palladium:command",
-            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/white_mode_prototype.png",
             "title": "Untransform",
             "bar_color": "light_gray",
             "hidden": true,
@@ -35,23 +35,6 @@
                 ]
             }
         },
-        "quick_change": {
-            "type": "ben10:quick_change",
-            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/quick_change.png",
-            "title": "Quick Change",
-            "hidden": true,
-            "hidden_in_bar": false,
-            "list_index": 4,
-            "conditions": {
-                "enabling": {
-                        "type": "palladium:action",
-                        "cooldown": 0,
-                        "key_type": "key_bind",
-                        "needs_empty_hand": false,
-                        "allow_scrolling_when_crouching": true
-                }
-            }
-        }, 
         "name_change": {
             "type": "palladium:name_change",
             "hidden": true,
@@ -67,7 +50,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran.png",
+            "texture": "ben10:textures/entity/prototype/kineceleran/kineceleran.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -91,7 +74,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_timeout.png",
+            "texture": "ben10:textures/entity/prototype/kineceleran/kineceleran_timeout.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -110,7 +93,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_mask.png",
+            "texture": "ben10:textures/entity/prototype/kineceleran/kineceleran_mask.png",
             "model_type": "keep",
             "priority": 60,
             "conditions": {
@@ -140,7 +123,7 @@
         "hidden": true,
         "hidden_in_bar": true,
         "list_index": -1,
-        "texture": "ben10:textures/entity/ben10/prototype/kineceleran/kineceleran_mask_timeout.png",
+        "texture": "ben10:textures/entity/prototype/kineceleran/kineceleran_mask_timeout.png",
         "model_type": "keep",
         "priority": 50,
         "conditions": {
@@ -171,7 +154,6 @@
         "type": "palladium:command",
         "hidden": true,
         "hidden_in_bar": true,
-        "first_tick_commands": [],
         "last_tick_commands": ["effect clear"],
         "commands": [
             "effect give @s minecraft:night_vision 1 0 true"
@@ -208,8 +190,6 @@
         "type": "palladium:command",
         "hidden": true,
         "hidden_in_bar": true,
-        "first_tick_commands": [],
-        "last_tick_commands": [],
         "commands": [
             "scoreboard players add @s kineceleran_speed 1"
         ],
@@ -242,8 +222,6 @@
         "type": "palladium:command",
         "hidden": true,
         "hidden_in_bar": true,
-        "first_tick_commands": [],
-        "last_tick_commands": [],
         "commands": [
             "scoreboard players remove @s kineceleran_speed 1"
         ],
@@ -274,7 +252,7 @@
       },
       "barrage": {
         "type": "palladium:command",
-        "icon": "ben10:textures/icon/gui/powers/barrage.png",
+        "icon": "nc:textures/icon/gui/powers/misc/barrage.png",
         "title": "Barrage",
         "bar_color": "light_gray",
         "hidden": false,
@@ -348,7 +326,7 @@
         "type": "palladium:trail",
         "hidden": true,
         "hidden_in_bar": true,
-        "trail": "ben10:ben10/kineceleran",
+        "trail": "ben10:kineceleran",
         "conditions": {
             "enabling": {
                 "type": "palladium:objective_score",
@@ -502,7 +480,7 @@
         }
     },
     "no_hunger": {
-        "type": "ben10:hunger_freeze",
+        "type": "nc:hunger_freeze",
         "hidden": true,
         "hidden_in_bar": true,
         "conditions": {

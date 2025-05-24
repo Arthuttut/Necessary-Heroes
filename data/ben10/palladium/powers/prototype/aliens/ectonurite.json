@@ -1,11 +1,11 @@
 {
     "name": "Ectonurite",
     "background": "minecraft:textures/block/red_wool.png",
-    "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_activation_os.png",
+    "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_activation_os.png",
     "abilities": {
         "untransfoarm": {
             "type": "palladium:command",
-            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
             "title": "Untransform",
             "bar_color": "light_gray",
             "hidden": true,
@@ -14,7 +14,7 @@
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
-                "function nc:omnitrix/prototype/untransform"
+                "function ben10:omnitrix/prototype/untransform"
             ],
             "conditions": {
                 "enabling": {
@@ -51,7 +51,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite.png",
+            "texture": "ben10:textures/entity/prototype/ectonurite/ectonurite.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -73,7 +73,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_timeout.png",
+            "texture": "ben10:textures/entity/prototype/ectonurite/ectonurite_timeout.png",
             "model_type": "keep",
             "priority": 50,
             "conditions": {
@@ -90,7 +90,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_transparent.png",
+            "texture": "ben10:textures/entity/prototype/ectonurite/ectonurite_transparent.png",
             "model_type": "keep",
             "priority": 60,
             "conditions": {
@@ -105,7 +105,7 @@
             "hidden": true,
             "hidden_in_bar": true,
             "list_index": -1,
-            "texture": "nc:textures/entity/ben10/prototype/ectonurite/ectonurite_transparent_timeout.png",
+            "texture": "ben10:textures/entity/ben10/prototype/ectonurite/ectonurite_transparent_timeout.png",
             "model_type": "keep",
             "priority": 60,
             "conditions": {
@@ -146,7 +146,7 @@
         },
         "intangibility": {
             "type": "palladium:intangibility",
-            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_intangibility.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_intangibility.png",
             "title": "Intangibility",
             "bar_color": "light_gray",
             "hidden": false,
@@ -191,7 +191,7 @@
             "gui_position": "null",
             "description": "null",
             "damage_sources": [
-                "nc:ben10/prototype/ectonurite"
+                "ben10:ben10/prototype/ectonurite"
             ],
             "conditions": {
                 "enabling": {
@@ -238,7 +238,7 @@
         "invisibility" : {
             "type": "palladium:command",
             "hidden": false,
-            "icon": "nc:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_invisibility.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/ectonurite/ectonurite_invisibility.png",
             "list_index": 1,
             "hidden_in_bar": false,
             "first_tick_commands": ["effect give @s minecraft:invisibility infinite 0 true"],

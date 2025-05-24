@@ -1,0 +1,7 @@
+{
+    "textures": {
+      "normal": "marvel:textures/suits/spider_man_suits/base/spider_man.png",
+      "slim": "marvel:textures/suits/spider_man_suits/base/spider_man.png"
+    },
+    "hide_second_layer": true
+  }

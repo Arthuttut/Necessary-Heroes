@@ -1,0 +1,19 @@
+{
+  "display": {
+    "icon": {
+      "item": "nc:fabrics/light_blue_fabric"
+    },
+    "title": "Necessary Heroes",
+    "description": "create a new world with the addonpack and explore countless universes",
+    "background": "nc:advancements/nc/copper_block.png",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "starter": {
+      "trigger": "minecraft:tick"
+    }
+  },
+  "sends_telemetry_event": false
+}

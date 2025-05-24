@@ -2,6 +2,7 @@
     "name": "Prototype",
     "background": "minecraft:textures/block/green_wool.png",
     "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+    "ability_bar_texture": "ben10:textures/gui/ability_bar/ability_bar.png",
     "abilities": {
         "prototype_layer": {
             "type": "palladium:render_layer",
@@ -743,8 +744,11 @@
         },
         "scroll_up": {
             "type": "palladium:command",
+            "title": "Next",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/next.png",
             "hidden": true,
-            "hidden_in_bar": true,
+            "list_index": 1,
+            "hidden_in_bar": false,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -755,7 +759,7 @@
             "enabling": [
                  {
                   "type": "palladium:action",
-                  "cooldown": 0,
+                  "cooldown": 1,
                   "key_type": "scroll_up",
                   "needs_empty_hand": true,
                   "allow_scrolling_when_crouching": true
@@ -770,16 +774,28 @@
               }
             }
                 ],
-                "unlocking": {
+                "unlocking": [{
                         "type": "palladium:has_tag",
                         "tag": "prime_prototype"
-              }
+              },
+            {
+    "type": "palladium:not",
+    "conditions": {
+    "type": "palladium:objective_score",
+    "objective": "omnitrix_timer",
+    "min_score": 0,
+    "max_score": 5999
+}
+}]
               }
         },
         "scroll_down": {
             "type": "palladium:command",
+            "title": "Back",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/back.png",
             "hidden": true,
-            "hidden_in_bar": true,
+            "hidden_in_bar": false,
+            "list_index": 3,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -790,7 +806,7 @@
             "enabling": [
                  {
                   "type": "palladium:action",
-                  "cooldown": 0,
+                  "cooldown": 1,
                   "key_type": "scroll_down",
                   "needs_empty_hand": true,
                   "allow_scrolling_when_crouching": true
@@ -805,10 +821,19 @@
               }
             }
                 ],
-                "unlocking": {
+                "unlocking": [{
                         "type": "palladium:has_tag",
                         "tag": "prime_prototype"
-              }
+              },
+            {
+    "type": "palladium:not",
+    "conditions": {
+    "type": "palladium:objective_score",
+    "objective": "omnitrix_timer",
+    "min_score": 0,
+    "max_score": 5999
+}
+}]
               }
         },
         "dial_cycle_animation": {
@@ -852,7 +877,7 @@
             "title": "Pyronite",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -895,7 +920,7 @@
             "title": "Vulpimancer",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -938,7 +963,7 @@
             "title": "Petrosapien",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -981,7 +1006,7 @@
             "title": "Kineceleran",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1023,7 +1048,7 @@
             "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/galvan/galvan_activation_os.png",
             "title": "Galvan",
             "hidden": true,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1065,7 +1090,7 @@
             "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/tetramand/tetramand_activation_os.png",
             "title": "Tetramand",
             "hidden": true,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1108,7 +1133,7 @@
             "title": "Lepidopterran",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1151,7 +1176,7 @@
             "title": "Piscciss Volann",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1194,7 +1219,7 @@
             "title": "Galvanic Mechamorph",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1237,7 +1262,7 @@
             "title": "Ectonurite",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1280,7 +1305,7 @@
             "title": "Arburian Pelarota",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1323,7 +1348,7 @@
             "title": "Florauna",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1366,7 +1391,7 @@
             "title": "Loboan",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1409,7 +1434,7 @@
             "title": "Thep Khufan",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1452,7 +1477,7 @@
             "title": "Transylian",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1495,7 +1520,7 @@
             "title": "Gourmand",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1538,7 +1563,7 @@
             "title": "Splixson",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1581,7 +1606,7 @@
             "title": "Opticoid",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1624,7 +1649,7 @@
             "title": "To'kustar",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1667,7 +1692,7 @@
             "title": "Polar Manzardill",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1710,7 +1735,7 @@
             "title": "Conductoid",
             "hidden": true,
             "hidden_in_bar": false,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1752,7 +1777,7 @@
             "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/nosedeenian/nosedeenian_activation_os.png",
             "title": "Nosedeenian",
             "hidden": true,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [
@@ -1794,7 +1819,7 @@
             "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/sphoeroid/sphoeroid_activation_os.png",
             "title": "Sphoeroid",
             "hidden": true,
-            "list_index": 1,
+            "list_index": 2,
             "first_tick_commands": [],
             "last_tick_commands": [],
             "commands": [

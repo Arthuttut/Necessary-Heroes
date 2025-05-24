@@ -1,1 +1,1 @@
-scoreboard objectives add speedforce_speed dummy
+scoreboard objectives add dc.speedforce_speed dummy

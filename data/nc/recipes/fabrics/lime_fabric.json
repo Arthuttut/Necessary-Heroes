@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "#N",
+      "L "
+  ],
+  "key": {
+      "#": {
+          "item": "minecraft:lime_dye"
+      },
+      "N": {
+          "item": "nc:plates/iron_plate"
+      },
+      "L": {
+          "item": "minecraft:leather"
+      }
+  },
+  "result": {
+      "item": "nc:fabrics/lime_fabric",
+      "count": 1
+  }
+}

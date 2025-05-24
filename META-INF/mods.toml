@@ -1,7 +1,7 @@
 modLoader = 'lowcodefml'
 showAsResourcePack = false
 loaderVersion="[47,)"
-license="MIT License"
+license="GNU General Public License v3.0"
 
 [[mods]]
 modId="nc"
@@ -14,8 +14,36 @@ Necessary heroes for you minecraft.
 '''
 
 [[dependencies.nc]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nc]]
 modId = "palladium"
 mandatory = true
-versionRange = ">=4.2.1"
+versionRange = ">=4.2.2"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nc]]
+modId = "kubejs"
+mandatory = true
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nc]]
+modId = "geckolib"
+mandatory = true
+versionRange = "*"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.nc]]
+modId = "pehkui"
+mandatory = true
+versionRange = "*"
 ordering = "NONE"
 side = "BOTH"

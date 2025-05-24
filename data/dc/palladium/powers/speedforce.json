@@ -5,15 +5,12 @@
   "abilities": {
     "speedforce_create": {
         "type": "palladium:command",
-        "icon": "minecraft:command_block",
-        "bar_color": "light_gray",
         "hidden": true,
         "hidden_in_bar": true,
-        "list_index": -1,
         "first_tick_commands": [],
         "last_tick_commands": [],
         "commands": [
-            "function nc:speedforce/speedforce"
+            "function dc:speedforce/speedforce"
         ]
     },
     "speed_adjust": {
@@ -46,7 +43,7 @@
         "first_tick_commands": [],
         "last_tick_commands": [],
         "commands": [
-            "scoreboard players add @s speedforce_speed 1"
+            "scoreboard players add @s dc.speedforce_speed 1"
         ],
       "conditions": {
         "enabling": [
@@ -61,7 +58,7 @@
             "type": "palladium:not",
             "conditions": {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 10,
               "max_score": 10
           }
@@ -84,7 +81,7 @@
         "first_tick_commands": [],
         "last_tick_commands": [],
         "commands": [
-            "scoreboard players remove @s speedforce_speed 1"
+            "scoreboard players remove @s dc.speedforce_speed 1"
         ],
       "conditions": {
         "enabling": [
@@ -99,7 +96,7 @@
             "type": "palladium:not",
             "conditions": {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 0,
               "max_score": 0
           }
@@ -123,7 +120,7 @@
         "conditions": {
           "enabling": {
             "type": "palladium:objective_score",
-            "objective": "speedforce_speed",
+            "objective": "dc.speedforce_speed",
             "min_score": 1,
             "max_score": 10
         },
@@ -132,6 +129,19 @@
       }
         }
     },
+    "hunger_freeze": {
+    "type": "nc:hunger_freeze",
+    "hidden": true,
+    "hidden_in_bar": true,
+    "conditions": {
+      "enabling": {
+      "type": "palladium:objective_score",
+      "objective": "dc.speedforce_speed",
+      "min_score": 1,
+      "max_score": 10
+}
+    }
+},
       "strength_speed": {
           "type": "palladium:attribute_modifier",
           "hidden": true,
@@ -148,7 +158,7 @@
             },
             {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 2,
               "max_score": 5
           }
@@ -172,7 +182,7 @@
           },
           {
             "type": "palladium:objective_score",
-            "objective": "speedforce_speed",
+            "objective": "dc.speedforce_speed",
             "min_score": 6,
             "max_score": 8
         }
@@ -196,9 +206,9 @@
         },
         {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
-          "min_score": 6,
-          "max_score": 8
+          "objective": "dc.speedforce_speed",
+          "min_score": 7,
+          "max_score": 10
       }
         ]
       }
@@ -220,7 +230,7 @@
         "conditions": {
           "enabling": {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 1,
               "max_score": 1
           }
@@ -242,7 +252,7 @@
       "conditions": {
         "enabling": {
             "type": "palladium:objective_score",
-            "objective": "speedforce_speed",
+            "objective": "dc.speedforce_speed",
             "min_score": 2,
             "max_score": 2
         }
@@ -264,7 +274,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 3,
           "max_score": 3
       }
@@ -286,7 +296,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 4,
           "max_score": 4
       }
@@ -308,7 +318,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 5,
           "max_score": 5
       }
@@ -330,7 +340,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 6,
           "max_score": 6
       }
@@ -352,7 +362,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 7,
           "max_score": 7
       }
@@ -374,7 +384,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 8,
           "max_score": 8
       }
@@ -396,7 +406,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 9,
           "max_score": 9
       }
@@ -418,7 +428,7 @@
     "conditions": {
       "enabling": {
           "type": "palladium:objective_score",
-          "objective": "speedforce_speed",
+          "objective": "dc.speedforce_speed",
           "min_score": 10,
           "max_score": 10
       }
@@ -439,7 +449,7 @@
             "type": "palladium:and",
             "conditions": [{
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 3,
               "max_score": 10
           },
@@ -475,7 +485,7 @@
             "conditions": {
               "enabling": {
                   "type": "palladium:objective_score",
-                  "objective": "speedforce_speed",
+                  "objective": "dc.speedforce_speed",
                   "min_score": 2,
                   "max_score": 2
               }
@@ -495,7 +505,7 @@
             "conditions": {
               "enabling": {
                   "type": "palladium:objective_score",
-                  "objective": "speedforce_speed",
+                  "objective": "dc.speedforce_speed",
                   "min_score": 3,
                   "max_score": 3
               }
@@ -515,7 +525,7 @@
             "conditions": {
               "enabling": {
                   "type": "palladium:objective_score",
-                  "objective": "speedforce_speed",
+                  "objective": "dc.speedforce_speed",
                   "min_score": 4,
                   "max_score": 4
               }
@@ -535,7 +545,7 @@
             "conditions": {
               "enabling": {
                   "type": "palladium:objective_score",
-                  "objective": "speedforce_speed",
+                  "objective": "dc.speedforce_speed",
                   "min_score": 5,
                   "max_score": 5
               }
@@ -543,73 +553,59 @@
     },
     "lightning_layer": {
         "type": "palladium:render_layer",
-        "icon": "minecraft:blaze_rod",
-        "bar_color": "light_gray",
         "hidden": true,
         "hidden_in_bar": true,
-        "list_index": -1,
-        "render_layer": "nc:lightning_sparks",
+        "render_layer": "dc:lightning_sparks",
         "conditions": {
           "enabling": {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 1,
               "max_score": 10
           }
         }
     },
-      "eletric_trail": {
+      "trail": {
           "type": "palladium:trail",
-          "icon": "minecraft:blaze_rod",
-          "bar_color": "light_gray",
           "hidden": true,
           "hidden_in_bar": true,
-          "list_index": -1,
-          "trail": "nc:ray_trail",
+          "trail": "dc:speedforce",
           "conditions": {
             "enabling": {
                 "type": "palladium:objective_score",
-                "objective": "speedforce_speed",
+                "objective": "dc.speedforce_speed",
                 "min_score": 1,
                 "max_score": 10
             }
           }
       },
-      "step_assist": {
-          "type": "palladium:attribute_modifier",
-          "icon": "minecraft:iron_chestplate",
-          "bar_color": "light_gray",
+      "step_height": {
+          "type": "palladium:command",
           "hidden": true,
           "hidden_in_bar": true,
-          "list_index": -1,
-          "attribute": "forge:step_height_addition",
-          "amount": 2,
-          "operation": 0,
-          "uuid": "af3418b0-4c60-4d88-90ef-2172654ed79e",
+          "first_tick_commands": ["scale set pehkui:step_height 2 @s"],
+          "last_tick_commands": ["scale reset @s"],
+          "commands": [],
           "conditions": {
             "enabling": {
                 "type": "palladium:objective_score",
-                "objective": "speedforce_speed",
+                "objective": "dc.speedforce_speed",
                 "min_score": 1,
                 "max_score": 2
             }
           }
     },
-    "step_assist2": {
-          "type": "palladium:attribute_modifier",
-          "icon": "minecraft:iron_chestplate",
-          "bar_color": "light_gray",
+    "step_height2": {
+          "type": "palladium:command",
           "hidden": true,
           "hidden_in_bar": true,
-          "list_index": -1,
-          "attribute": "forge:step_height_addition",
-          "amount": 3.5,
-          "operation": 0,
-          "uuid": "67c4c230-e18e-4cda-bc34-5804e66caf58",
+          "first_tick_commands": ["scale set pehkui:step_height 4 @s"],
+          "last_tick_commands": ["scale reset @s"],
+          "commands": [],
           "conditions": {
             "enabling": {
                 "type": "palladium:objective_score",
-                "objective": "speedforce_speed",
+                "objective": "dc.speedforce_speed",
                 "min_score": 3,
                 "max_score": 10
             }
@@ -648,8 +644,8 @@
         "first_tick_commands": [],
         "last_tick_commands": [],
         "commands": [
-            "effect give @s minecraft:weakness 1 255 true",
-            "effect give @s minecraft:mining_fatigue 1 255 true"
+            "scale set pehkui:attack  @s",
+            "scale set pehkui:attack_speed 0 @s"
         ],
         "conditions": {
           "enabling": {
@@ -663,7 +659,6 @@
       "hidden": true,
       "hidden_in_bar": true,
       "vertical": false,
-      "whitelist": "null",
       "blacklist": "palladium:prevents_intangibility",
       "conditions": {
         "enabling": {
@@ -690,9 +685,6 @@
           "type": "palladium:damage_immunity",
           "hidden": true,
           "hidden_in_bar": true,
-          "list_index": -1,
-          "gui_position": "null",
-          "description": "null",
           "damage_sources": [
               "minecraft:is_fall"
           ],
@@ -703,7 +695,7 @@
             },
             {
               "type": "palladium:objective_score",
-              "objective": "speedforce_speed",
+              "objective": "dc.speedforce_speed",
               "min_score": 2,
               "max_score": 10
           }]
@@ -716,7 +708,7 @@
        "color": "#ffff00",
        "synced_value": {
       "type": "score",
-      "objective": "speedforce_speed",
+      "objective": "dc.speedforce_speed",
       "fallback": 0
    }
   }

@@ -1,0 +1,29 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#p#",
+        "nPn",
+        "#N#"
+    ],
+    "key": {
+        "#": {
+            "item": "nc:wires/copper_wire"
+        },
+        "p": {
+            "item": "palladium:lead_ingot"
+        },
+        "n": {
+            "item": "nc:ingots/steel_ingot"
+        },
+        "P": {
+            "item": "palladium:redstone_flux_crystal"
+        },
+        "N": {
+            "item": "nc:tech/advanced_cpu"
+        }
+    },
+    "result": {
+        "item": "nc:tech/reactor",
+        "count": 1
+    }
+}

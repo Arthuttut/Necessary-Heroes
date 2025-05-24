@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#R#",
+        "PVP",
+        "#R#"
+    ],
+    "key": {
+        "#": {
+            "item": "nc:plates/iron_plate"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "P": {
+            "item": "palladium:lead_flux_capacitor"
+        },
+        "V": {
+            "item": "palladium:lead_circuit"
+        }
+    },
+    "result": {
+        "item": "nc:tech/cpu",
+        "count": 1
+    }
+}

@@ -1,4 +1,7 @@
 {
+    "type": "palladium:compound",
+    "layers": [
+      {
     "type": "geckolib:default",
     "model": "ben10:geo/prototype/prototype.geo.json",
     "animation_file": "ben10:animations/prototype/dial_cycle.animation.json",
@@ -30,5 +33,7 @@
     }
     }
   },
-  "output": "nc:textures/models/ben10/prototype/prototype.png"
+  "output": "ben10:textures/models/prototype/prototype.png"
+  }
+]
   }

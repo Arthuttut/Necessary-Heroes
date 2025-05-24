@@ -1,0 +1,31 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"fan_rotation": {
+			"loop": true,
+			"animation_length": 0.0833,
+			"bones": {
+				"left_fan": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0833": {
+							"vector": [0, -255, 0]
+						}
+					}
+				},
+				"right_fan": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.0833": {
+							"vector": [0, -255, 0]
+						}
+					}
+				}
+			}
+		}
+	}
+}

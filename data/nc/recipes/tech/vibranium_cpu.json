@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#R#",
+        "PNP",
+        "#R#"
+    ],
+    "key": {
+        "#": {
+            "item": "nc:plates/vibranium_plate"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "P": {
+            "item": "palladium:vibranium_flux_capacitor"
+        },
+        "N": {
+            "item": "nc:tech/advanced_cpu"
+        }
+    },
+    "result": {
+        "item": "nc:tech/vibranium_cpu",
+        "count": 1
+    }
+}

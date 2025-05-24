@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "nc:block/raw_ore_blocks/raw_tin_block"
+    }
+  }
+}

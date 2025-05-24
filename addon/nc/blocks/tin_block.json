@@ -1,0 +1,11 @@
+{
+  "type": "palladium:default",
+  "map_color": "minecraft:metal",
+  "sound_type": "minecraft:metal",
+  "destroy_time": 3.0,
+  "explosion_resistance": 5.0,
+  "render_type": "solid",
+  "no_occlusion": false,
+  "requires_correct_tool_for_drops": true,
+  "register_item": true
+}

@@ -5,7 +5,7 @@
     "abilities": {
         "untransfoarm": {
             "type": "palladium:command",
-            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/normal_mode_prototype.png",
+            "icon": "ben10:textures/icon/gui/powers/prototype_omnitrix/prototype/white_mode_prototype.png",
             "title": "Untransform",
             "bar_color": "light_gray",
             "hidden": true,

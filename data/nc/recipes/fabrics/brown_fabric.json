@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+      "#N",
+      "L "
+  ],
+  "key": {
+      "#": {
+          "item": "minecraft:brown_dye"
+      },
+      "N": {
+          "item": "nc:plates/iron_plate"
+      },
+      "L": {
+          "item": "minecraft:leather"
+      }
+  },
+  "result": {
+      "item": "nc:fabrics/brown_fabric",
+      "count": 1
+  }
+}

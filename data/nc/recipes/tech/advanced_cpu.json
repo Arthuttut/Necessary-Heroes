@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#R#",
+        "PNP",
+        "#R#"
+    ],
+    "key": {
+        "#": {
+            "item": "nc:plates/gold_plate"
+        },
+        "R": {
+            "item": "minecraft:redstone"
+        },
+        "P": {
+            "item": "palladium:quartz_flux_capacitor"
+        },
+        "N": {
+            "item": "nc:tech/cpu"
+        }
+    },
+    "result": {
+        "item": "nc:tech/advanced_cpu",
+        "count": 1
+    }
+}

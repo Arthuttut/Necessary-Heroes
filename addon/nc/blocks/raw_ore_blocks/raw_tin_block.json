@@ -1,0 +1,11 @@
+{
+  "map_color": "minecraft:raw_iron",
+  "sound_type": "minecraft:stone",
+  "destroy_time": 1.0,
+  "explosion_resistance": 6.0,
+  "render_type": "solid",
+  "no_occlusion": false,
+  "requires_correct_tool_for_drops": true,
+  "register_item": true,
+  "creative_mode_tab": "nc:materials"
+}

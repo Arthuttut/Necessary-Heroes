@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "nc:raw/raw_tin"
+        }
+    },
+    "result": {
+        "item": "nc:raw_ore_blocks/raw_tin_block",
+        "count": 1
+    }
+}

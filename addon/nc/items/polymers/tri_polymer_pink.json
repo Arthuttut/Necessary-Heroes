@@ -1,9 +1,0 @@
-{
-    "max_stack_size": 16,
-    "rarity": "common",
-    "is_fire_resistant": false,
-    "creative_mode_tab": {
-        "tab": "nc:necessary_tab",
-        "after": "nc:tri_polymer_green"
-    }
-}

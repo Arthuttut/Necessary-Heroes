@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "nc:dust/steel_dust"
+    },
+    "result": "nc:ingots/steel_ingot",
+    "experience": 0.7,
+    "cookingtime": 200
+}
